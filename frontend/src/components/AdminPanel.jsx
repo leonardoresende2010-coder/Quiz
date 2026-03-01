@@ -125,6 +125,7 @@ function AdminPanel({
                             fastestPlayer={fastestPlayer}
                             correctPlayers={correctPlayers}
                             playerAnswers={playerAnswers}
+                            isAdmin={true}
                         />
                         <div className="admin-floating-actions">
                             <button className="next-btn" onClick={handleNext}>

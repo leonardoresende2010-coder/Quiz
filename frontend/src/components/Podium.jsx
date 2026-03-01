@@ -46,15 +46,13 @@ function Podium({ podium, fullRanking }) {
             <div className="rankings-columns">
                 <div className="ranking-card">
                     <h3>Classificação da Partida</h3>
-                    <div className="ranking-list">
-                        {rankingData.map((p, idx) => (
-                            <div key={idx} className="ranking-item">
-                                <span className="rank-number">#{idx + 1}</span>
-                                <span className="rank-name">{p.nickname || p.name || '---'}</span>
-                                <span className="rank-score">{p.score} pts</span>
-                            </div>
-                        ))}
-                    </div>
+                    {rankingData.map((p, idx) => (
+                        <div key={idx} className="podium-ranking-item">
+                            <span className="podium-rank-number">#{idx + 1}</span>
+                            <span className="podium-rank-name">{p.nickname || p.name || '---'}</span>
+                            <span className="podium-rank-score">{p.score} pts</span>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
