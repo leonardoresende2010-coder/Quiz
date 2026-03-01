@@ -12,7 +12,8 @@ import './App.css';
 import './components/ParticipantList.css';
 
 // Initialize socket outside component to avoid reconnects on re-render
-const socket = io('http://localhost:3001');
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
+const socket = io(BACKEND_URL);
 
 function App() {
   const [gameState, setGameState] = useState('LOBBY'); // LOBBY, QUESTION, REVEAL, PODIUM
