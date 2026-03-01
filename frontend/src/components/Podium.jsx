@@ -41,22 +41,17 @@ function Podium({ podium, fullRanking, allTimeRanking }) {
             </div>
 
             <div className="rankings-columns">
-                <div className="card-container ranking-card">
-                    <h3>Current Match Ranking</h3>
-                    <ol>
-                        {fullRanking.map((p, idx) => (
-                            <li key={idx}><strong>{p.nickname}</strong> - {p.score} pts</li>
+                <div className="card-container ranking-card full-width">
+                    <h3>🏆 Classificação da Partida</h3>
+                    <div className="ranking-list">
+                        {(fullRanking.length > 0 ? fullRanking : podium).map((p, idx) => (
+                            <div key={idx} className="ranking-item">
+                                <span className="rank-number">#{idx + 1}</span>
+                                <span className="rank-name">{p.nickname}</span>
+                                <span className="rank-score">{p.score} pts</span>
+                            </div>
                         ))}
-                    </ol>
-                </div>
-
-                <div className="card-container ranking-card">
-                    <h3>All-Time Top 10 Leaderboard</h3>
-                    <ol>
-                        {allTimeRanking.map((p, idx) => (
-                            <li key={idx}><strong>{p.nickname}</strong> - {p.score} pts</li>
-                        ))}
-                    </ol>
+                    </div>
                 </div>
             </div>
         </div>

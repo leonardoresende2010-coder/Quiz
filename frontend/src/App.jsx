@@ -27,6 +27,7 @@ function App() {
   const [podium, setPodium] = useState([]);
   const [fullRanking, setFullRanking] = useState([]);
   const [allTimeRanking, setAllTimeRanking] = useState([]);
+  const [playerAnswers, setPlayerAnswers] = useState({});
 
   const [nickname, setNickname] = useState('');
   const [isJoined, setIsJoined] = useState(false);
@@ -36,14 +37,7 @@ function App() {
     socket.on('game_state_change', (data) => {
       console.log('Game State Update:', data);
       if (data.gameState) setGameState(data.gameState);
-
-      // Update players ranking - prioritize 'players' key, fallback to 'scores'
-      if (data.players) {
-        setPlayers(data.players);
-      } else if (data.scores) {
-        setPlayers(data.scores);
-      }
-
+      if (data.players) setPlayers(data.players);
       if (data.pendingPlayers) setPendingPlayers(data.pendingPlayers);
       if (data.question !== undefined) setQuestion(data.question);
       if (data.timer !== undefined) setTimer(data.timer);
@@ -53,6 +47,7 @@ function App() {
       if (data.podium) setPodium(data.podium);
       if (data.fullRanking) setFullRanking(data.fullRanking);
       if (data.allTimeRanking) setAllTimeRanking(data.allTimeRanking);
+      if (data.answers) setPlayerAnswers(data.answers);
     });
 
     socket.on('time_tick', (data) => {
@@ -105,64 +100,61 @@ function App() {
     socket.emit('submit_answer', index);
   };
 
-  const PlayerView = () => {
-    // Determine if we should show the sidebar (only during active game)
-    const showSidebar = gameState !== 'PODIUM' && isApproved;
-
-    return (
-      <div className={showSidebar ? "game-with-sidebar" : "game-without-sidebar"}>
-        <div className="game-main-content">
-          {gameState === 'LOBBY' && (
-            <Lobby
-              players={players}
-              isJoined={isJoined}
-              isApproved={isApproved}
-              onJoin={handleJoin}
-            />
-          )}
-
-          {gameState === 'QUESTION' && (
-            <Question
-              question={question}
-              timer={timer}
-              onSubmitAnswer={handleSubmitAnswer}
-            />
-          )}
-
-          {gameState === 'REVEAL' && (
-            <Reveal
-              question={question}
-              correctAnswerIndex={correctAnswerIndex}
-              scores={players} // Backend now sends 'players' with scores
-              fastestPlayer={fastestPlayer}
-              myNickname={nickname}
-              correctPlayers={correctPlayers}
-            />
-          )}
-
-          {gameState === 'PODIUM' && (
-            <Podium
-              podium={podium}
-              fullRanking={fullRanking}
-              allTimeRanking={allTimeRanking}
-            />
-          )}
-        </div>
-
-        {showSidebar && (
-          <div className="participant-list-active">
-            <ParticipantList players={players} />
-          </div>
-        )}
-      </div>
-    );
-  };
+  // Determine if we should show the sidebar (only during active game)
+  const showSidebar = gameState !== 'PODIUM' && isApproved;
 
   return (
     <BrowserRouter>
       <div className="app-container">
         <Routes>
-          <Route path="/" element={<PlayerView />} />
+          <Route path="/" element={
+            <div className={showSidebar ? "game-with-sidebar" : "game-without-sidebar"}>
+              <div className="game-main-content">
+                {gameState === 'LOBBY' && (
+                  <Lobby
+                    players={players}
+                    isJoined={isJoined}
+                    isApproved={isApproved}
+                    onJoin={handleJoin}
+                  />
+                )}
+
+                {gameState === 'QUESTION' && (
+                  <Question
+                    question={question}
+                    timer={timer}
+                    onSubmitAnswer={handleSubmitAnswer}
+                  />
+                )}
+
+                {gameState === 'REVEAL' && (
+                  <Reveal
+                    question={question}
+                    correctAnswerIndex={correctAnswerIndex}
+                    scores={players}
+                    fastestPlayer={fastestPlayer}
+                    myNickname={nickname}
+                    correctPlayers={correctPlayers}
+                    playerAnswers={playerAnswers}
+                  />
+                )}
+
+                {gameState === 'PODIUM' && (
+                  <Podium
+                    podium={podium}
+                    fullRanking={fullRanking}
+                    allTimeRanking={allTimeRanking}
+                  />
+                )}
+              </div>
+
+              {showSidebar && (
+                <div className="participant-list-active">
+                  <ParticipantList players={players} />
+                </div>
+              )}
+            </div>
+          } />
           <Route path="/admin" element={
             <AdminPanel
               socket={socket}

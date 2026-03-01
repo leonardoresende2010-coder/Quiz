@@ -93,12 +93,18 @@ const revealAnswer = async () => {
 
     console.log('[revealAnswer] Updated players:', updatedPlayers);
 
+    const answersByNickname = {};
+    Object.values(currentAnswers).forEach(a => {
+        answersByNickname[a.nickname] = a.optionIndex;
+    });
+
     io.emit('game_state_change', {
         gameState,
         correctAnswerIndex: currentQ.correctAnswerIndex,
         players: updatedPlayers,
         fastestPlayer: fastestNickname,
-        correctPlayers
+        correctPlayers,
+        answers: answersByNickname
     });
 };
 

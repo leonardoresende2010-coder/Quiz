@@ -4,7 +4,9 @@ import './Reveal.css';
 
 const BG = getRandomBg();
 
-function Reveal({ question, correctAnswerIndex, scores, fastestPlayer, myNickname, correctPlayers }) {
+const OPTION_LETTERS = ['A', 'B', 'C', 'D'];
+
+function Reveal({ question, correctAnswerIndex, scores, fastestPlayer, myNickname, correctPlayers, playerAnswers }) {
     if (!question) return null;
 
     const myScoreObj = scores.find(s => s.nickname === myNickname);
@@ -19,39 +21,40 @@ function Reveal({ question, correctAnswerIndex, scores, fastestPlayer, myNicknam
 
                 <div className="correct-answer-box">
                     <h3>Resposta Correta</h3>
-                    <p className="correct-text">{correctText}</p>
+                    <p className="correct-text">{OPTION_LETTERS[correctAnswerIndex]}: {correctText}</p>
                 </div>
 
-                {fastestPlayer && (
-                    <div className="fastest-banner">
-                        <span className="fastest-av" style={{ background: getAvatar(fastestPlayer).bg }}>
-                            {getAvatar(fastestPlayer).emoji}
-                        </span>
-                        <strong>{fastestPlayer}</strong> foi o mais rápido! 🚀
-                    </div>
-                )}
-
-                <div className="correct-list-section">
-                    <h3>Quem acertou</h3>
-                    <div className="winner-bubbles">
-                        {scores.filter(s => correctPlayers?.includes(s.nickname)).map(s => {
+                <div className="participants-answers-grid">
+                    <h3>Respostas dos Jogadores</h3>
+                    <div className="answers-bubbles">
+                        {scores.map(s => {
                             const av = getAvatar(s.nickname);
+                            const chosenIdx = playerAnswers[s.nickname];
+                            const isCorrect = chosenIdx === correctAnswerIndex;
+                            const hasAnswered = chosenIdx !== undefined;
+
                             return (
-                                <div key={s.nickname} className="winner-bubble">
-                                    <span className="winner-av" style={{ background: av.bg }}>{av.emoji}</span>
-                                    <span>{s.nickname}</span>
-                                    <span className="winner-score">{s.score} pts</span>
+                                <div key={s.nickname} className={`answer-bubble ${hasAnswered ? (isCorrect ? 'correct' : 'wrong') : 'no-answer'}`}>
+                                    <div className="bubble-left">
+                                        <span className="bubble-av" style={{ background: av.bg }}>{av.emoji}</span>
+                                        <div className="bubble-info">
+                                            <span className="bubble-name">{s.nickname}</span>
+                                            {s.nickname === fastestPlayer && <span className="fastest-tag">🚀 Turbo</span>}
+                                        </div>
+                                    </div>
+                                    <div className="bubble-right">
+                                        <span className="bubble-letter">
+                                            {hasAnswered ? OPTION_LETTERS[chosenIdx] : '—'}
+                                        </span>
+                                    </div>
                                 </div>
                             );
                         })}
-                        {(!correctPlayers || correctPlayers.length === 0) && (
-                            <p style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 700 }}>Ninguém acertou... 😱</p>
-                        )}
                     </div>
                 </div>
 
                 {myNickname && (
-                    <div className="my-score">
+                    <div className="my-score-footer">
                         Sua pontuação: <strong>{myScore} pts</strong>
                     </div>
                 )}
