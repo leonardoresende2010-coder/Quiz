@@ -11,12 +11,11 @@ import ParticipantList from './components/ParticipantList';
 import './App.css';
 import './components/ParticipantList.css';
 
-// Initialize socket outside component to avoid reconnects on re-render
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
 const socket = io(BACKEND_URL);
 
 function App() {
-  const [gameState, setGameState] = useState('LOBBY'); // LOBBY, QUESTION, REVEAL, PODIUM
+  const [gameState, setGameState] = useState('LOBBY');
   const [players, setPlayers] = useState([]);
   const [pendingPlayers, setPendingPlayers] = useState([]);
   const [question, setQuestion] = useState(null);
@@ -54,22 +53,10 @@ function App() {
       setTimer(data.timer);
     });
 
-    socket.on('pending_approval', () => {
-      setIsApproved(false);
-    });
-
-    socket.on('player_admitted', () => {
-      setIsApproved(true);
-    });
-
-    socket.on('bonus_point', () => {
-      console.log("You got the bonus point!");
-    });
-
-    socket.on('error', (msg) => {
-      alert(msg);
-    });
-
+    socket.on('pending_approval', () => setIsApproved(false));
+    socket.on('player_admitted', () => setIsApproved(true));
+    socket.on('bonus_point', () => console.log("Turbo Bonus!"));
+    socket.on('error', (msg) => alert(msg));
     socket.on('disconnect', () => {
       setIsJoined(false);
       setIsApproved(false);
@@ -92,15 +79,19 @@ function App() {
     setIsJoined(true);
   };
 
-  const handleStartGame = () => {
-    socket.emit('admin_start_game');
-  };
+  const handleStartGame = () => socket.emit('admin_start_game');
+  const handleSubmitAnswer = (index) => socket.emit('submit_answer', index);
 
-  const handleSubmitAnswer = (index) => {
-    socket.emit('submit_answer', index);
-  };
+  const PlayerWait = ({ type }) => (
+    <div className="player-wait-screen">
+      <div className="wait-card">
+        <h1>{type === 'REVEAL' ? '⏱ Rodada Encerrada' : '🏆 Fim de Jogo!'}</h1>
+        <p>Confira o resultado no telão oficial!</p>
+        <div className="wait-icon">🎰</div>
+      </div>
+    </div>
+  );
 
-  // Determine if we should show the sidebar (only during active game)
   const showSidebar = gameState !== 'PODIUM' && isApproved;
 
   return (
@@ -111,47 +102,18 @@ function App() {
             <div className={showSidebar ? "game-with-sidebar" : "game-without-sidebar"}>
               <div className="game-main-content">
                 {gameState === 'LOBBY' && (
-                  <Lobby
-                    players={players}
-                    isJoined={isJoined}
-                    isApproved={isApproved}
-                    onJoin={handleJoin}
-                  />
+                  <Lobby players={players} isJoined={isJoined} isApproved={isApproved} onJoin={handleJoin} />
                 )}
 
                 {gameState === 'QUESTION' && (
-                  <Question
-                    question={question}
-                    timer={timer}
-                    onSubmitAnswer={handleSubmitAnswer}
-                  />
+                  <Question question={question} timer={timer} onSubmitAnswer={handleSubmitAnswer} />
                 )}
 
-                {gameState === 'REVEAL' && (
-                  <Reveal
-                    question={question}
-                    correctAnswerIndex={correctAnswerIndex}
-                    scores={players}
-                    fastestPlayer={fastestPlayer}
-                    correctPlayers={correctPlayers}
-                    playerAnswers={playerAnswers}
-                  />
-                )}
+                {gameState === 'REVEAL' && <PlayerWait type="REVEAL" />}
 
-                {gameState === 'PODIUM' && (
-                  <Podium
-                    podium={podium}
-                    fullRanking={fullRanking}
-                    allTimeRanking={allTimeRanking}
-                  />
-                )}
+                {gameState === 'PODIUM' && <PlayerWait type="PODIUM" />}
               </div>
 
-              {showSidebar && (
-                <div className="participant-list-active">
-                  <ParticipantList players={players} />
-                </div>
-              )}
             </div>
           } />
           <Route path="/admin" element={
