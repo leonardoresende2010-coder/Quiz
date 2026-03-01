@@ -133,7 +133,6 @@ function App() {
                     correctAnswerIndex={correctAnswerIndex}
                     scores={players}
                     fastestPlayer={fastestPlayer}
-                    myNickname={nickname}
                     correctPlayers={correctPlayers}
                     playerAnswers={playerAnswers}
                   />
@@ -171,6 +170,7 @@ function App() {
               podium={podium}
               fullRanking={fullRanking}
               allTimeRanking={allTimeRanking}
+              playerAnswers={playerAnswers}
             />
           } />
         </Routes>

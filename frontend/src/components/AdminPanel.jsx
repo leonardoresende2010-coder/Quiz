@@ -20,7 +20,8 @@ function AdminPanel({
     correctPlayers,
     podium,
     fullRanking,
-    allTimeRanking
+    allTimeRanking,
+    playerAnswers
 }) {
     // Show "Novo Jogo?" modal on first load
     const [showNewGameModal, setShowNewGameModal] = useState(true);
@@ -123,6 +124,7 @@ function AdminPanel({
                             scores={players}
                             fastestPlayer={fastestPlayer}
                             correctPlayers={correctPlayers}
+                            playerAnswers={playerAnswers}
                         />
                         <div className="admin-floating-actions">
                             <button className="next-btn" onClick={handleNext}>
