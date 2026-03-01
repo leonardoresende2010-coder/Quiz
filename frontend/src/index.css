@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap');
+
+:root {
+  /* Casino cyber theme */
+  --gold: #c9a84c;
+  --gold-light: #f0c96a;
+  --gold-dark: #8a6820;
+
+  --card-bg: rgba(10, 10, 20, 0.78);
+  --card-border: rgba(255, 255, 255, 0.10);
+
+  --opt-a: #8a6820;
+  /* gold-dark */
+  --opt-b: #1a3a5c;
+  /* deep blue */
+  --opt-c: #5c1a1a;
+  /* deep red */
+  --opt-d: #1a4a2e;
+  /* deep green */
+
+  --overlay: rgba(5, 5, 12, 0.72);
+
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.60);
+
+  /* Legacy compat */
+  --primary: #c9a84c;
+  --secondary: #e21b3c;
+  --blue: #1368ce;
+  --green: #26890c;
+  --yellow: #ffa602;
+  --bg-color: #0a0a14;
+  --text-dark: #ffffff;
+  --text-light: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Base button styles */
+button {
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.input-field {
+  padding: 12px 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  border-color: var(--primary);
+}
+
+.card-container {
+  background: white;
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}

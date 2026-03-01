@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Rajdhani:wght@600;700&display=swap');
+
+/* ── Screen ─────────────────────────────────── */
+.qscreen {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 24px 24px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    font-family: 'Nunito', sans-serif;
+}
+
+.qscreen-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--overlay);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── Top Bar ─────────────────────────────────── */
+.qscreen-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 2;
+}
+
+.qtimer {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: #0a0a14;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 900;
+    font-family: 'Rajdhani', sans-serif;
+    flex-shrink: 0;
+}
+
+.qtimer.urgent {
+    background: #c0392b;
+    color: white;
+    animation: timerPulse 0.5s ease infinite;
+}
+
+@keyframes timerPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.qpoints-badge {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--gold);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+/* ── Question Card ───────────────────────────── */
+.qcard-wrap {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    z-index: 2;
+}
+
+.qcard {
+    width: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Gold chip tab on left */
+.qcard-chip {
+    width: 54px;
+    min-width: 54px;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #0a0a14;
+    font-family: 'Rajdhani', sans-serif;
+    flex-shrink: 0;
+}
+
+.qcard-body {
+    padding: 24px 28px;
+    flex: 1;
+}
+
+.qcard-text {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.qdiff {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 8px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.qdiff-fácil {
+    background: #1a4a2e;
+    color: #7dffb3;
+}
+
+.qdiff-média {
+    background: #4a3a00;
+    color: #ffd166;
+}
+
+.qdiff-difícil {
+    background: #4a0a0a;
+    color: #ff8080;
+}
+
+/* ── Options Grid ────────────────────────────── */
+.qoptions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+    flex: 2;
+    z-index: 2;
+    position: relative;
+}
+
+.qopt {
+    display: flex;
+    align-items: stretch;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: left;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: background 0.15s, transform 0.12s;
+}
+
+.qopt:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.qopt:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+.qopt:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.qopt-answered {
+    opacity: 0.8;
+}
+
+/* Colored letter tab — color is passed via CSS var */
+.qopt-letter {
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--tab-color);
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    flex-shrink: 0;
+    padding: 16px 0;
+}
+
+.qopt-text {
+    flex: 1;
+    padding: 14px 18px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    display: flex;
+    align-items: center;
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 768px) {
+    .qoptions {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+    }
+
+    .qcard-text {
+        font-size: 1.2rem;
+    }
+}

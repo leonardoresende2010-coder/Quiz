@@ -1,0 +1,132 @@
+.participant-sidebar {
+    padding: 14px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Nunito', sans-serif;
+}
+
+.ranking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ranking-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.88rem;
+    transition: background 0.15s;
+    animation: slideIn 0.25s ease;
+}
+
+.ranking-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+/* Top 3 highlights — subtle */
+.rank-0 {
+    border-color: rgba(201, 168, 76, 0.35);
+}
+
+.rank-1 {
+    border-color: rgba(160, 160, 160, 0.3);
+}
+
+.rank-2 {
+    border-color: rgba(180, 100, 40, 0.3);
+}
+
+.rank-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.rank-medal {
+    margin-right: 3px;
+    font-size: 0.9rem;
+}
+
+.rank-name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+}
+
+.rank-score {
+    font-size: 0.8rem;
+    font-weight: 900;
+    color: var(--gold, #c9a84c);
+    background: rgba(201, 168, 76, 0.1);
+    padding: 2px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.no-players {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.85rem;
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+/* Wrapper used in the game sidebar */
+.participant-list-active {
+    width: 280px;
+    min-width: 260px;
+    height: 100vh;
+    background: #0d0d1e;
+    border-left: 1px solid rgba(255, 255, 255, 0.07);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 900px) {
+    .participant-list-active {
+        width: 100%;
+        height: auto;
+        max-height: 150px;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .ranking-list {
+        flex-direction: row;
+        padding: 8px;
+    }
+
+    .ranking-item {
+        min-width: 140px;
+    }
+}

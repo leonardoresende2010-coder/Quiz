@@ -1,0 +1,154 @@
+.podium-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: var(--primary);
+    color: white;
+}
+
+.podium-container h1 {
+    color: white;
+    font-size: 3.5rem;
+    margin-bottom: 60px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.podium-display {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 15px;
+    height: 300px;
+    margin-bottom: 60px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.podium-spot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    animation: riseUp 1s ease-out forwards;
+    opacity: 0;
+}
+
+.podium-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    word-break: break-word;
+}
+
+.podium-bar {
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    color: white;
+    font-weight: 800;
+    font-size: 1.5rem;
+    box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.medal {
+    font-size: 3rem;
+    margin-top: 10px;
+}
+
+.gold .podium-bar {
+    height: 250px;
+    background-color: #ffd700;
+    color: #8b6508;
+}
+
+.silver .podium-bar {
+    height: 180px;
+    background-color: #c0c0c0;
+    color: #4a4a4a;
+}
+
+.bronze .podium-bar {
+    height: 120px;
+    background-color: #cd7f32;
+    color: #5c3a21;
+}
+
+.gold {
+    animation-delay: 0.6s;
+}
+
+.silver {
+    animation-delay: 0.3s;
+}
+
+.bronze {
+    animation-delay: 0s;
+}
+
+.rankings-columns {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    animation: fadeIn 1.5s ease;
+}
+
+.ranking-card {
+    flex: 1;
+    color: var(--text-dark);
+}
+
+.ranking-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.ranking-card ol {
+    padding-left: 20px;
+    font-size: 1.1rem;
+}
+
+.ranking-card li {
+    margin-bottom: 10px;
+    padding: 5px 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+@keyframes riseUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .rankings-columns {
+        flex-direction: column;
+    }
+}
