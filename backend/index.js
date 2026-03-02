@@ -318,6 +318,13 @@ io.on('connection', async (socket) => {
         currentAnswers[socket.id] = { nickname, optionIndex, timeTaken, correct: isCorrect };
 
         const admittedCount = await prisma.user.count({ where: { isApproved: true } });
+
+        // Broadcast real-time stats
+        io.emit('answer_stats', {
+            answered: Object.keys(currentAnswers).length,
+            total: admittedCount
+        });
+
         if (Object.keys(currentAnswers).length === admittedCount) {
             clearInterval(timerInterval);
             io.emit('all_answered');

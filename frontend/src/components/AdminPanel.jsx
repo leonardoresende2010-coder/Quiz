@@ -25,6 +25,24 @@ function AdminPanel({
 }) {
     // Show "Novo Jogo?" modal on first load
     const [showNewGameModal, setShowNewGameModal] = useState(true);
+    const [answerStats, setAnswerStats] = useState({ answered: 0, total: 0 });
+
+    useEffect(() => {
+        socket.on('answer_stats', (stats) => {
+            setAnswerStats(stats);
+        });
+
+        return () => {
+            socket.off('answer_stats');
+        };
+    }, [socket]);
+
+    // Reset stats when question code changes
+    useEffect(() => {
+        if (gameState === 'QUESTION') {
+            setAnswerStats(prev => ({ ...prev, answered: 0 }));
+        }
+    }, [question?.id, gameState]);
 
     const admitPlayer = (nickname) => socket.emit('admin_admit_player', nickname);
     const admitAll = () => socket.emit('admin_admit_all');
@@ -107,6 +125,16 @@ function AdminPanel({
 
                 {gameState === 'QUESTION' && (
                     <div className="admin-game-view">
+                        <div className="answer-counter-bar">
+                            <div className="counter-item">
+                                <span className="counter-label">Respondido:</span>
+                                <span className="counter-value">{answerStats.answered} / {answerStats.total}</span>
+                            </div>
+                            <div className="counter-item">
+                                <span className="counter-label">Faltam:</span>
+                                <span className="counter-value urgent">{Math.max(0, answerStats.total - answerStats.answered)}</span>
+                            </div>
+                        </div>
                         <Question question={question} timer={timer} readOnly={true} />
                         <div className="admin-floating-actions">
                             <button className="reveal-btn" onClick={handleReveal}>

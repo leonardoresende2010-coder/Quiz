@@ -178,6 +178,42 @@
     align-items: center;
 }
 
+/* ── Answer Stats Bar ────────────────────── */
+.answer-counter-bar {
+    display: flex;
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 30px;
+    border-radius: 40px;
+    margin-bottom: 5px;
+}
+
+.counter-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.counter-label {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.counter-value {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--gold, #c9a84c);
+}
+
+.counter-value.urgent {
+    color: #ff5252;
+}
+
 /* ── Cards & Lists ──────────────────────── */
 .admin-card {
     background: rgba(255, 255, 255, 0.04);

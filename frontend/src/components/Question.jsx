@@ -7,7 +7,7 @@ const OPT_VARS = ['--opt-a', '--opt-b', '--opt-c', '--opt-d'];
 
 function Question({ question, timer, onSubmitAnswer, readOnly }) {
     const [bg, setBg] = useState(getRandomBg());
-    const [answered, setAnswered] = useState(false);
+    const [selectedIndex, setSelectedIndex] = useState(null);
     const [showIntro, setShowIntro] = useState(false);
     const videoRef = useRef(null);
 
@@ -15,7 +15,7 @@ function Question({ question, timer, onSubmitAnswer, readOnly }) {
     useEffect(() => {
         if (question?.id) {
             setBg(prev => getNewBg(prev));
-            setAnswered(false);
+            setSelectedIndex(null);
 
             // Only show intro if it's not the initial mount of the same question
             setShowIntro(true);
@@ -36,8 +36,8 @@ function Question({ question, timer, onSubmitAnswer, readOnly }) {
     const isUrgent = timer !== null && timer <= 10;
 
     const handleAnswer = (idx) => {
-        if (readOnly || answered || timer === 0) return;
-        setAnswered(true);
+        if (readOnly || selectedIndex !== null || timer === 0) return;
+        setSelectedIndex(idx);
         onSubmitAnswer && onSubmitAnswer(idx);
     };
 
@@ -88,10 +88,10 @@ function Question({ question, timer, onSubmitAnswer, readOnly }) {
                     return (
                         <button
                             key={idx}
-                            className={`qopt${answered ? ' qopt-answered' : ''}`}
+                            className={`qopt${selectedIndex === idx ? ' qopt-selected' : ''}${selectedIndex !== null ? ' qopt-answered' : ''}`}
                             style={{ '--tab-color': `var(${OPT_VARS[idx]})` }}
                             onClick={() => handleAnswer(idx)}
-                            disabled={readOnly || answered || timer === 0}
+                            disabled={readOnly || selectedIndex !== null || timer === 0}
                         >
                             <span className="qopt-letter">{OPTION_LETTERS[idx]}</span>
                             <span className="qopt-text">{clean}</span>
