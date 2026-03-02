@@ -24,7 +24,7 @@ function Question({ question, timer, onSubmitAnswer, readOnly }) {
 
     useEffect(() => {
         if (showIntro && videoRef.current) {
-            videoRef.current.playbackRate = 1.5;
+            videoRef.current.playbackRate = 2.0;
             videoRef.current.play().catch(e => {
                 console.warn("Autoplay blocked or video missing:", e);
                 setShowIntro(false);
@@ -53,12 +53,11 @@ function Question({ question, timer, onSubmitAnswer, readOnly }) {
                         ref={videoRef}
                         className="qintro-video"
                         src="/bg/cacaniqueis.mp4"
-                        muted
                         playsInline
                         onEnded={() => setShowIntro(false)}
                         onLoadedMetadata={() => {
                             if (videoRef.current) {
-                                videoRef.current.playbackRate = 1.5;
+                                videoRef.current.playbackRate = 2.0;
                             }
                         }}
                     />
