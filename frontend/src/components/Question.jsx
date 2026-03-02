@@ -20,7 +20,7 @@ function Question({ question, timer, onSubmitAnswer, readOnly }) {
     const isUrgent = timer !== null && timer <= 10;
 
     const handleAnswer = (idx) => {
-        if (readOnly || answered) return;
+        if (readOnly || answered || timer === 0) return;
         setAnswered(true);
         onSubmitAnswer && onSubmitAnswer(idx);
     };
@@ -62,7 +62,7 @@ function Question({ question, timer, onSubmitAnswer, readOnly }) {
                             className={`qopt${answered ? ' qopt-answered' : ''}`}
                             style={{ '--tab-color': `var(${OPT_VARS[idx]})` }}
                             onClick={() => handleAnswer(idx)}
-                            disabled={readOnly || answered}
+                            disabled={readOnly || answered || timer === 0}
                         >
                             <span className="qopt-letter">{OPTION_LETTERS[idx]}</span>
                             <span className="qopt-text">{clean}</span>

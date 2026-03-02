@@ -85,7 +85,6 @@ function App() {
   const PlayerWait = ({ type }) => (
     <div className="player-wait-screen">
       <div className="wait-card">
-        <h1>{type === 'REVEAL' ? '⏱ Rodada Encerrada' : '🏆 Fim de Jogo!'}</h1>
         <p>Confira o resultado no telão oficial!</p>
         <div className="wait-icon">🎰</div>
       </div>
