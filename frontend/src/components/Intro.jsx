@@ -29,6 +29,8 @@ function Intro({ onStart }) {
                 className="intro-video"
                 src="/bg/abertura.mp4"
                 playsInline
+                autoPlay
+                muted
                 onEnded={handleVideoEnd}
             />
 
