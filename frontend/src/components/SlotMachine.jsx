@@ -3,7 +3,7 @@ import './SlotMachine.css';
 
 // Base64 sounds for fallback if no files are provided
 const SOUNDS = {
-    spin: "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA==", // Placeholder beep 
+    spin: "/audio/cacaniquelaudio.m4a", // New real audio file
     stop: "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA==", // Placeholder beep
     win: "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA=="   // Placeholder beep
 };
