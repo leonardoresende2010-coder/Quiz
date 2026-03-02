@@ -6,14 +6,18 @@ function Intro({ onStart }) {
     const [showFinalButton, setShowFinalButton] = useState(false);
     const videoRef = useRef(null);
 
-    const handleStartIntro = () => {
-        setStarted(true);
-        if (videoRef.current) {
+    // Play video once it's rendered in the DOM after the click
+    useEffect(() => {
+        if (started && videoRef.current) {
             videoRef.current.play().catch(e => {
                 console.warn('Playback failed:', e);
                 setShowFinalButton(true);
             });
         }
+    }, [started]);
+
+    const handleStartIntro = () => {
+        setStarted(true);
     };
 
     const handleVideoEnd = () => {
@@ -25,7 +29,7 @@ function Intro({ onStart }) {
             {!started ? (
                 <div className="intro-overlay pre-start">
                     <button className="iniciar-btn" onClick={handleStartIntro}>
-                        ENTRAR NO CASSINO
+                        ENTRAR NO JOGO
                     </button>
                 </div>
             ) : (
