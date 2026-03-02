@@ -8,6 +8,8 @@ import Podium from './components/Podium';
 import AdminPanel from './components/AdminPanel';
 import ParticipantList from './components/ParticipantList';
 
+import Intro from './components/Intro';
+
 import './App.css';
 import './components/ParticipantList.css';
 
@@ -31,6 +33,7 @@ function App() {
   const [nickname, setNickname] = useState('');
   const [isJoined, setIsJoined] = useState(false);
   const [isApproved, setIsApproved] = useState(false);
+  const [hasSeenIntro, setHasSeenIntro] = useState(false);
 
   useEffect(() => {
     socket.on('game_state_change', (data) => {
