@@ -24,7 +24,6 @@ function Question({ question, timer, onSubmitAnswer, readOnly }) {
 
     useEffect(() => {
         if (showIntro && videoRef.current) {
-            videoRef.current.playbackRate = 2.0;
             videoRef.current.play().catch(e => {
                 console.warn("Autoplay blocked or video missing:", e);
                 setShowIntro(false);
@@ -52,14 +51,9 @@ function Question({ question, timer, onSubmitAnswer, readOnly }) {
                     <video
                         ref={videoRef}
                         className="qintro-video"
-                        src="/bg/cacaniqueis.mp4"
+                        src="/bg/casino.mp4"
                         playsInline
                         onEnded={() => setShowIntro(false)}
-                        onLoadedMetadata={() => {
-                            if (videoRef.current) {
-                                videoRef.current.playbackRate = 2.0;
-                            }
-                        }}
                     />
                 </div>
             )}
