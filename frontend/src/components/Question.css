@@ -21,6 +21,24 @@
     z-index: 0;
 }
 
+/* ── Intro Video ──────────────────────────────── */
+.qintro-overlay {
+    position: fixed;
+    inset: 0;
+    background: black;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qintro-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+
 /* ── Top Bar ─────────────────────────────────── */
 .qscreen-topbar {
     display: flex;

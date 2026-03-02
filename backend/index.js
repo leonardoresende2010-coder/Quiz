@@ -126,7 +126,10 @@ const startNextQuestion = async () => {
         players: currentPlayers
     });
 
-    startTimer();
+    // Delay timer to account for intro video (approx 4s)
+    setTimeout(() => {
+        if (gameState === 'QUESTION') startTimer();
+    }, 4000);
 };
 
 // --- End Game ---

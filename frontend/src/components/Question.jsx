@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { getRandomBg, getNewBg } from '../utils/backgrounds';
 import './Question.css';
 
@@ -8,12 +8,29 @@ const OPT_VARS = ['--opt-a', '--opt-b', '--opt-c', '--opt-d'];
 function Question({ question, timer, onSubmitAnswer, readOnly }) {
     const [bg, setBg] = useState(getRandomBg());
     const [answered, setAnswered] = useState(false);
+    const [showIntro, setShowIntro] = useState(false);
+    const videoRef = useRef(null);
 
-    // Change background on new question
+    // Initial load / question change
     useEffect(() => {
-        setBg(prev => getNewBg(prev));
-        setAnswered(false);
+        if (question?.id) {
+            setBg(prev => getNewBg(prev));
+            setAnswered(false);
+
+            // Only show intro if it's not the initial mount of the same question
+            setShowIntro(true);
+        }
     }, [question?.id]);
+
+    useEffect(() => {
+        if (showIntro && videoRef.current) {
+            videoRef.current.playbackRate = 1.5;
+            videoRef.current.play().catch(e => {
+                console.warn("Autoplay blocked or video missing:", e);
+                setShowIntro(false);
+            });
+        }
+    }, [showIntro]);
 
     if (!question) return <div className="qscreen" style={{ backgroundImage: `url(${bg})` }}></div>;
 
@@ -28,6 +45,25 @@ function Question({ question, timer, onSubmitAnswer, readOnly }) {
     return (
         <div className="qscreen" style={{ backgroundImage: `url(${bg})` }}>
             <div className="qscreen-overlay" />
+
+            {/* Intro Video Overlay */}
+            {showIntro && (
+                <div className="qintro-overlay">
+                    <video
+                        ref={videoRef}
+                        className="qintro-video"
+                        src="/bg/cacaniqueis.mp4"
+                        muted
+                        playsInline
+                        onEnded={() => setShowIntro(false)}
+                        onLoadedMetadata={() => {
+                            if (videoRef.current) {
+                                videoRef.current.playbackRate = 1.5;
+                            }
+                        }}
+                    />
+                </div>
+            )}
 
             {/* Top bar */}
             <div className="qscreen-topbar">
