@@ -2,44 +2,50 @@ import { useState, useRef, useEffect } from 'react';
 import './Intro.css';
 
 function Intro({ onStart }) {
-    const [showButton, setShowButton] = useState(false);
+    const [started, setStarted] = useState(false);
+    const [showFinalButton, setShowFinalButton] = useState(false);
     const videoRef = useRef(null);
 
-    // Try to auto-play on mount
-    useEffect(() => {
+    const handleStartIntro = () => {
+        setStarted(true);
         if (videoRef.current) {
             videoRef.current.play().catch(e => {
-                console.warn('Autoplay blocked by browser. User must interact.', e);
-                // If autoplay is blocked, we might just show the button immediately 
-                // or let the user click the screen to start the video.
-                // For safety, let's just show the button so they aren't stuck.
-                setShowButton(true);
+                console.warn('Playback failed:', e);
+                setShowFinalButton(true);
             });
         }
-    }, []);
+    };
 
     const handleVideoEnd = () => {
-        setShowButton(true);
+        setShowFinalButton(true);
     };
 
     return (
         <div className="intro-container">
-            <video
-                ref={videoRef}
-                className="intro-video"
-                src="/bg/abertura.mp4"
-                playsInline
-                autoPlay
-                muted
-                onEnded={handleVideoEnd}
-            />
-
-            {showButton && (
-                <div className="intro-overlay">
-                    <button className="iniciar-btn" onClick={onStart}>
-                        INICIAR
+            {!started ? (
+                <div className="intro-overlay pre-start">
+                    <button className="iniciar-btn" onClick={handleStartIntro}>
+                        ENTRAR NO CASSINO
                     </button>
                 </div>
+            ) : (
+                <>
+                    <video
+                        ref={videoRef}
+                        className="intro-video"
+                        src="/bg/abertura.mp4"
+                        playsInline
+                        onEnded={handleVideoEnd}
+                    />
+
+                    {showFinalButton && (
+                        <div className="intro-overlay">
+                            <button className="iniciar-btn" onClick={onStart}>
+                                INICIAR
+                            </button>
+                        </div>
+                    )}
+                </>
             )}
         </div>
     );
