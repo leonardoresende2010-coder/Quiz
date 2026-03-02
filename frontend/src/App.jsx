@@ -101,22 +101,26 @@ function App() {
       <div className="app-container">
         <Routes>
           <Route path="/" element={
-            <div className={showSidebar ? "game-with-sidebar" : "game-without-sidebar"}>
-              <div className="game-main-content">
-                {gameState === 'LOBBY' && (
-                  <Lobby players={players} isJoined={isJoined} isApproved={isApproved} onJoin={handleJoin} />
-                )}
+            !hasSeenIntro ? (
+              <Intro onStart={() => setHasSeenIntro(true)} />
+            ) : (
+              <div className={showSidebar ? "game-with-sidebar" : "game-without-sidebar"}>
+                <div className="game-main-content">
+                  {gameState === 'LOBBY' && (
+                    <Lobby players={players} isJoined={isJoined} isApproved={isApproved} onJoin={handleJoin} />
+                  )}
 
-                {gameState === 'QUESTION' && (
-                  <Question question={question} timer={timer} onSubmitAnswer={handleSubmitAnswer} />
-                )}
+                  {gameState === 'QUESTION' && (
+                    <Question question={question} timer={timer} onSubmitAnswer={handleSubmitAnswer} />
+                  )}
 
-                {gameState === 'REVEAL' && <PlayerWait type="REVEAL" />}
+                  {gameState === 'REVEAL' && <PlayerWait type="REVEAL" />}
 
-                {gameState === 'PODIUM' && <PlayerWait type="PODIUM" />}
+                  {gameState === 'PODIUM' && <PlayerWait type="PODIUM" />}
+                </div>
+
               </div>
-
-            </div>
+            )
           } />
           <Route path="/admin" element={
             <AdminPanel
