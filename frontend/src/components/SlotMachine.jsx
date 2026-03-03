@@ -19,46 +19,39 @@ function SlotMachine({ podium, onComplete }) {
     const audioRefWin = useRef(new Audio(SOUNDS.win));
 
     const [players, setPlayers] = useState([null, null, null]);
+    const hasStarted = useRef(false);
 
     useEffect(() => {
-        // Map podium data to the 3 slots (0: Gold, 1: Silver, 2: Bronze)
-        // The display order left-to-right is usually Silver(1), Gold(0), Bronze(2) 
-        // to match the original podium layout, or we can just do 1, 2, 3 straight.
-        // Let's do Gold in middle, Silver left, Bronze right.
+        if (hasStarted.current) return;
+        hasStarted.current = true;
+
         const p1 = podium[1] || { nickname: '---', score: 0 }; // Silver
         const p0 = podium[0] || { nickname: '---', score: 0 }; // Gold
         const p2 = podium[2] || { nickname: '---', score: 0 }; // Bronze
 
         setPlayers([p1, p0, p2]);
 
-        // Start animation sequence
         const sequence = async () => {
-            // Wait a moment before pulling lever
             await new Promise(r => setTimeout(r, 1000));
             setLeverPulled(true);
 
-            // Loop spin sound
             audioRefSpin.current.loop = true;
             audioRefSpin.current.play().catch(e => console.warn('Audio blocked', e));
 
-            // Stop Bronze (reels[2])
             await new Promise(r => setTimeout(r, 3000));
             setRevealedCount(1);
             playSound(audioRefStop.current);
 
-            // Stop Silver (reels[0])
             await new Promise(r => setTimeout(r, 2000));
             setRevealedCount(2);
             playSound(audioRefStop.current);
 
-            // Stop Gold (reels[1])
             await new Promise(r => setTimeout(r, 2500));
             setRevealedCount(3);
             audioRefSpin.current.pause();
             playSound(audioRefWin.current);
             setCelebrate(true);
 
-            // Notify parent
             if (onComplete) {
                 setTimeout(onComplete, 3000);
             }
@@ -68,6 +61,8 @@ function SlotMachine({ podium, onComplete }) {
 
         return () => {
             audioRefSpin.current.pause();
+            audioRefStop.current.pause();
+            audioRefWin.current.pause();
         };
     }, [podium, onComplete]);
 
