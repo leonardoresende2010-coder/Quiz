@@ -1,0 +1,392 @@
+[
+    {
+        "id": 1,
+        "question": "De acordo com a Política de Segurança da Informação da 1pra1, como é classificada a informação contida no documento?",
+        "options": [
+            "A) Pública e Restrita",
+            "B) Confidencial e Estratégica",
+            "C) Interna e Operacional",
+            "D) Compartilhada e Acessível"
+        ],
+        "correctAnswerIndex": 1,
+        "difficultyStr": "Fácil",
+        "points": 5
+    },
+    {
+        "id": 2,
+        "question": "O que a propriedade de 'Confidencialidade' assegura segundo a PSI?",
+        "options": [
+            "A) Que a informação esteja acessível a qualquer momento",
+            "B) Que a informação não seja modificada acidentalmente",
+            "C) Que a informação não seja revelada a pessoas ou sistemas não autorizados",
+            "D) Que a origem da informação seja verdadeira"
+        ],
+        "correctAnswerIndex": 2,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 3,
+        "question": "Qual é a definição de 'Dado Pessoal Sensível' na Política de Segurança da Informação?",
+        "options": [
+            "A) Informação financeira corporativa",
+            "B) Dados sobre origem racial, convicção religiosa ou dados biométricos",
+            "C) Qualquer informação relacionada a uma pessoa jurídica",
+            "D) Endereço de e-mail profissional"
+        ],
+        "correctAnswerIndex": 1,
+        "difficultyStr": "Fácil",
+        "points": 5
+    },
+    {
+        "id": 4,
+        "question": "O Princípio do Menor Privilégio (Need-to-Know) estabelece que:",
+        "options": [
+            "A) Todos os colaboradores têm acesso total ao sistema",
+            "B) Apenas diretores podem acessar dados de clientes",
+            "C) Pessoas e sistemas devem possuir apenas o nível de acesso estritamente necessário",
+            "D) Senhas não são necessárias para sistemas internos"
+        ],
+        "correctAnswerIndex": 2,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 5,
+        "question": "Qual órgão da 1pra1 é o responsável por coordenar normas e verificar resultados de auditorias de segurança?",
+        "options": [
+            "A) Equipe de Resposta a Incidentes (ETIR)",
+            "B) Alta Administração",
+            "C) Encarregado de Dados (DPO)",
+            "D) Gestor de Segurança da Informação (CISO)"
+        ],
+        "correctAnswerIndex": 3,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 6,
+        "question": "Segundo as diretrizes de Gestão de Senhas da PSI, qual é o tamanho mínimo exigido?",
+        "options": [
+            "A) 6 caracteres",
+            "B) 8 caracteres (com letras, números e símbolos)",
+            "C) 10 caracteres alfanuméricos",
+            "D) 12 caracteres"
+        ],
+        "correctAnswerIndex": 1,
+        "difficultyStr": "Fácil",
+        "points": 5
+    },
+    {
+        "id": 7,
+        "question": "A política de 'Mesa Limpa e Tela Bloqueada' exige que o colaborador:",
+        "options": [
+            "A) Jogue fora todos os documentos impressos no fim do dia",
+            "B) Bloqueie a tela apenas no horário de almoço",
+            "C) Bloqueie a tela ao se ausentar e não deixe documentos físicos com dados pessoais expostos",
+            "D) Desligue o computador a cada pausa"
+        ],
+        "correctAnswerIndex": 2,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 8,
+        "question": "Sobre o uso de recursos de computação em nuvem na 1pra1, é correto afirmar que:",
+        "options": [
+            "A) É liberado para fins particulares dos colaboradores",
+            "B) Todo dado pessoal armazenado deve ser protegido por criptografia em repouso e trânsito",
+            "C) A auditoria nos provedores de nuvem é opcional",
+            "D) Dados financeiros podem ser armazenados sem criptografia se o acesso for restrito"
+        ],
+        "correctAnswerIndex": 1,
+        "difficultyStr": "Difícil",
+        "points": 20
+    },
+    {
+        "id": 9,
+        "question": "Como são tratados os contratos com provedores B2B segundo a PSI?",
+        "options": [
+            "A) Devem conter cláusulas de atendimento à Política e padrões de segurança",
+            "B) Não exigem formalização de segurança",
+            "C) Apenas contratos internacionais precisam de cláusulas de segurança",
+            "D) A responsabilidade pela segurança é exclusiva do parceiro"
+        ],
+        "correctAnswerIndex": 0,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 10,
+        "question": "Qual é a penalidade para a violação dos controles estabelecidos na PSI?",
+        "options": [
+            "A) Acesso revogado após 3 advertências",
+            "B) Apenas suspensão",
+            "C) Revogação imediata de acessos e sanções disciplinares e legais",
+            "D) Multa financeira descontada do salário"
+        ],
+        "correctAnswerIndex": 2,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 11,
+        "question": "Em qual situação a Política de Segurança da Informação (PSI) dispensa a revisão anual?",
+        "options": [
+            "A) Após mudanças significativas no modelo de negócios",
+            "B) A PSI nunca dispensa a revisão anual, devendo ser revisada em até 1 ano",
+            "C) Após incidentes graves envolvendo a SPA/MF",
+            "D) Quando não há auditorias externas agendadas"
+        ],
+        "correctAnswerIndex": 1,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 12,
+        "question": "Para acessos a sistemas críticos e contas administrativas na 1pra1, qual é a exigência técnica obrigatória?",
+        "options": [
+            "A) Autenticação via SMS",
+            "B) Múltiplos Fatores de Autenticação (MFA)",
+            "C) Troca de senha diária",
+            "D) Acesso realizado exclusivamente via rede local (LAN)"
+        ],
+        "correctAnswerIndex": 1,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 13,
+        "question": "De quem é a propriedade exclusiva do documento da Política de Segurança da Informação?",
+        "options": [
+            "A) Da ANPD",
+            "B) Dos funcionários regidos pelo regime CLT",
+            "C) Da SykeSec Consulting",
+            "D) Da 1pra1"
+        ],
+        "correctAnswerIndex": 3,
+        "difficultyStr": "Fácil",
+        "points": 5
+    },
+    {
+        "id": 14,
+        "question": "O que significa 'Irretratabilidade' no contexto da Segurança da Informação?",
+        "options": [
+            "A) Garantia de que as informações estão sempre disponíveis",
+            "B) Impossibilidade de negação da autoria de uma transação realizada",
+            "C) A proteção contra ataques de negação de serviço (DDoS)",
+            "D) A recuperação automática de sistemas pós-desastre"
+        ],
+        "correctAnswerIndex": 1,
+        "difficultyStr": "Difícil",
+        "points": 20
+    },
+    {
+        "id": 15,
+        "question": "Qual equipe é a principal responsável pela mitigação e tratamento de incidentes cibernéticos na 1pra1?",
+        "options": [
+            "A) ETIR (Equipe de Resposta a Incidentes)",
+            "B) Alta Administração",
+            "C) DPO",
+            "D) Setor de Compliance"
+        ],
+        "correctAnswerIndex": 0,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 16,
+        "question": "No contexto da Política de Proteção e Privacidade de Dados (PPDP), como a 1pra1 atua primordialmente?",
+        "options": [
+            "A) Órgão Regulador",
+            "B) Operadora de Dados",
+            "C) Controladora de Dados",
+            "D) Auditora Financeira"
+        ],
+        "correctAnswerIndex": 2,
+        "difficultyStr": "Fácil",
+        "points": 5
+    },
+    {
+        "id": 17,
+        "question": "O que é o DSAR mencionado na PPDP?",
+        "options": [
+            "A) Um sistema de proteção contra malwares",
+            "B) Um órgão do Ministério da Fazenda",
+            "C) O canal oficial para os titulares exercerem seus direitos de dados",
+            "D) Uma certificação internacional de segurança"
+        ],
+        "correctAnswerIndex": 2,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 18,
+        "question": "De que trata o RIPD (Relatório de Impacto à Proteção de Dados)?",
+        "options": [
+            "A) Documentação que descreve processos de tratamento que podem gerar riscos às liberdades civis",
+            "B) Um relatório anual entregue à Receita Federal",
+            "C) Um formulário de consentimento para coleta de cookies",
+            "D) O contrato de privacidade firmado com operadores"
+        ],
+        "correctAnswerIndex": 0,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 19,
+        "question": "O que significa a sigla PLD/FT na PPDP da 1pra1?",
+        "options": [
+            "A) Política Local de Dados da Fazenda Terceirizada",
+            "B) Proteção de Logs e Documentos Financeiros Transacionais",
+            "C) Prevenção à Lavagem de Dinheiro e ao Financiamento ao Terrorismo",
+            "D) Proteção Legal de Dinheiro e Fundos de Trabalho"
+        ],
+        "correctAnswerIndex": 2,
+        "difficultyStr": "Difícil",
+        "points": 20
+    },
+    {
+        "id": 20,
+        "question": "Qual é a função do DPO (Encarregado de Dados) na 1pra1?",
+        "options": [
+            "A) Aprovar orçamentos de marketing",
+            "B) Atuar como canal de comunicação com a ANPD e os titulares dos dados",
+            "C) Desenvolver o software de apostas",
+            "D) Autorizar a liquidação financeira das apostas"
+        ],
+        "correctAnswerIndex": 1,
+        "difficultyStr": "Fácil",
+        "points": 5
+    },
+    {
+        "id": 21,
+        "question": "O que os operadores de dados (ex: Oddsgate) NÃO podem fazer segundo a PPDP?",
+        "options": [
+            "A) Processar transações financeiras",
+            "B) Decidir unilateralmente sobre as finalidades do tratamento dos dados",
+            "C) Assinar Termos de Responsabilidade",
+            "D) Receber dados dos apostadores da Controladora"
+        ],
+        "correctAnswerIndex": 1,
+        "difficultyStr": "Difícil",
+        "points": 20
+    },
+    {
+        "id": 22,
+        "question": "O que deve acontecer com os dados pessoais ao término de um contrato com um fornecedor?",
+        "options": [
+            "A) Devem ser doados para estudos acadêmicos",
+            "B) O fornecedor pode mantê-los para estatísticas próprias",
+            "C) Devem ser publicados em relatórios abertos",
+            "D) Devem ser descartados de forma segura ou devolvidos"
+        ],
+        "correctAnswerIndex": 3,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 23,
+        "question": "Qual órgão brasileiro é responsável por fiscalizar o cumprimento da LGPD?",
+        "options": [
+            "A) Banco Central do Brasil",
+            "B) Ministério Público Federal",
+            "C) ANPD (Autoridade Nacional de Proteção de Dados)",
+            "D) SPA/MF"
+        ],
+        "correctAnswerIndex": 2,
+        "difficultyStr": "Fácil",
+        "points": 5
+    },
+    {
+        "id": 24,
+        "question": "O termo KYC (Know Your Customer) está mais diretamente associado à coleta de qual tipo de dado na 1pra1?",
+        "options": [
+            "A) Preferências de esportes",
+            "B) Biometria para prevenir fraudes",
+            "C) Histórico de navegação no site",
+            "D) Interações nas redes sociais"
+        ],
+        "correctAnswerIndex": 1,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 25,
+        "question": "Qual é a regra sobre criptografia na armazenagem em nuvem de dados pessoais ou financeiros?",
+        "options": [
+            "A) É obrigatória a criptografia em repouso e em trânsito",
+            "B) É opcional, se o provedor for certificado pela ISO",
+            "C) Apenas a criptografia em trânsito é obrigatória",
+            "D) Nenhuma criptografia é exigida para serviços em nuvem nacionais"
+        ],
+        "correctAnswerIndex": 0,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 26,
+        "question": "O que significa o ROPA segundo a política de privacidade?",
+        "options": [
+            "A) Relatório Operacional de Proteção e Armazenamento",
+            "B) Inventário ou registro de todas as operações de tratamento de dados pessoais",
+            "C) Registro Online de Privacidade Ativa",
+            "D) Regras Obrigatórias para Período de Avaliação"
+        ],
+        "correctAnswerIndex": 1,
+        "difficultyStr": "Difícil",
+        "points": 20
+    },
+    {
+        "id": 27,
+        "question": "Em caso de incidente de segurança que acarrete risco aos titulares, quem a 1pra1 deve notificar?",
+        "options": [
+            "A) Apenas os acionistas da 1pra1",
+            "B) Apenas o parceiro Oddsgate",
+            "C) A Polícia Federal e o Interpol",
+            "D) A ANPD e os órgãos reguladores competentes"
+        ],
+        "correctAnswerIndex": 3,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 28,
+        "question": "Qual é o principal foco da capacitação em privacidade para colaboradores na 1pra1?",
+        "options": [
+            "A) Programação avançada em Python",
+            "B) Adequar o tema da privacidade aos papéis operacionais de quem acessa os dados",
+            "C) Aumentar as vendas de apostas esportivas",
+            "D) Treinamento sobre a história dos cassinos"
+        ],
+        "correctAnswerIndex": 1,
+        "difficultyStr": "Média",
+        "points": 10
+    },
+    {
+        "id": 29,
+        "question": "O 'Aviso de Privacidade' é um documento interno ou externo?",
+        "options": [
+            "A) Interno, para a Alta Administração",
+            "B) Externo, destinado aos apostadores para comunicar como seus dados são protegidos",
+            "C) Interno, para a Equipe de TI consultar a arquitetura",
+            "D) Externo, voltado apenas para os gateways de pagamento"
+        ],
+        "correctAnswerIndex": 1,
+        "difficultyStr": "Fácil",
+        "points": 5
+    },
+    {
+        "id": 30,
+        "question": "Qual órgão regulamentador do governo federal (Cujo nome tem SPA/MF) fiscaliza as atividades comerciais de quota fixa da 1pra1?",
+        "options": [
+            "A) Secretaria do Patrimônio da União e Mineração Federal",
+            "B) Serviço de Proteção de Acionistas em Mercados Financeiros",
+            "C) Secretaria de Prêmios e Apostas do Ministério da Fazenda",
+            "D) Sistema de Proteção Avançada do Ministério Fiscal"
+        ],
+        "correctAnswerIndex": 2,
+        "difficultyStr": "Média",
+        "points": 10
+    }
+]

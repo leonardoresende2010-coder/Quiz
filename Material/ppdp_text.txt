@@ -1,0 +1,252 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+POLÍTICA DE PROTEÇÃO E PRIVACIDADE DE DADOS PESSOAIS  
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+Organização: 1pra1 (Apostas Online) 
+Referência Normativa: LGPD (Lei 13.709/18), Portaria SPA/MF nº 722 e modelo PSI 
+(gov.br) 
+ 
+Autoria Revisor Data de 
+Criação Versão Data de 
+Revisão 
+Nº da 
+Revisão 
+SykeSec 
+Consulting --- 24/05/2024 1.0 24/05/2024 00 
+ 
+ 
+GLOSSÁRIO DA POLÍTICA DE PROTEÇÃO DE DADOS PESSOAIS 
+Para os fins desta Política, os termos abaixo são definidos conforme a 
+legislação vigente e o contexto operacional da organização: 
+AGENTE DE TRATAMENTO:  O controlador e o operador de dados 
+pessoais. No contexto desta política, a 1pra1 atua primordialmente 
+como Controladora. 
+ANPD (AUTORIDADE NACIONAL DE PROTEÇÃO DE DADOS): Órgão 
+da administração pública responsável por zelar, implementar e 
+fiscalizar o cumprimento da LGPD em todo o território nacional. 
+AVISO DE PRIVACIDADE:  Documento externo destinado aos 
+apostadores e usuários que comunica, de forma transparente, como 
+a organização coleta, utiliza e protege seus dados. 
+BIOMETRIA: Dado pessoal sensível referente a características 
+físicas, utilizado no processo de KYC para prevenir fraudes e garantir 
+a identidade do apostador. 
+CONTROLADOR (1pra1):  Pessoa jurídica a quem competem as 
+decisões referentes ao tratamento de dados pessoais, como a 
+definição das finalidades e meios de processamento. 
+POLÍTICA DE PROTEÇÃO E PRIVACIDADE DE DADOS PESSOAIS  
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+DADO PESSOAL:  Informação relacionada a pessoa natural 
+identificada ou identificável (ex: nome, CPF , e -mail, histórico de 
+apostas). 
+DADO PESSOAL SENSÍVEL:  Dado sobre origem racial, convicção 
+religiosa, saúde, vida sexual ou dados biométricos, que exigem maior 
+nível de proteção. 
+DSAR (DATA SUBJECT ACCESS REQUEST): Canal oficial destinado a 
+garantir que os titulares de dados possam exercer seus direitos, como 
+acesso, correção ou exclusão de informações. 
+ENCARREGADO DE DADOS (DPO): Pessoa indicada pela 1pra1 para 
+atuar como canal de comunicação entre o controlador, os titulares 
+dos dados e a ANPD. 
+FINALIDADE: O propósito específico e legítimo para o qual o dado 
+pessoal é tratado (ex: cumprimento de obrigação legal ou execução 
+de contrato de aposta). 
+KYC (KNOW YOUR CUSTOMER):  Conjunto de procedimentos de 
+identificação e qualificação do cliente, obrigatório para a prevenção 
+de fraudes e conformidade regulatória no setor de apostas. 
+LGPD (LEI GERAL DE PROTEÇÃO DE DADOS):  Lei nº 13.709/2018, 
+que dispõe sobre o tratamento de dados pessoais com o objetivo de 
+proteger os direitos fundamentais de liberdade e de privacidade. 
+OPERADOR: Pessoa natural ou jurídica que realiza o tratamento de 
+dados pessoais em nome do controlador (ex: Oddsgate, Legitimuz, 
+Gateways de Pagamento). 
+PLD/FT: Sigla para Prevenção à Lavagem de Dinheiro e ao 
+Financiamento ao Terrorismo, uma das principais bases legais para o 
+tratamento de dados no setor de apostas. 
+RIPD (RELATÓRIO DE IMPACTO À PROTEÇÃO DE DADOS 
+PESSOAIS): Documentação que contém a descrição dos processos 
+POLÍTICA DE PROTEÇÃO E PRIVACIDADE DE DADOS PESSOAIS  
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+de tratamento que podem gerar riscos às liberdades civis, bem como 
+medidas de mitigação. 
+ROPA (RECORDS OF PROCESSING ACTIVITIES):  Inventário ou 
+registro de todas as operações de tratamento de dados pessoais 
+realizadas pela organização. 
+SPA/MF: Secretaria de Prêmios e Apostas do Ministério da Fazenda, 
+órgão regulador específico das atividades de apostas de quota fixa no 
+Brasil. 
+TITULAR DO DADO:  Pessoa natural (apostador ou colaborador) a 
+quem se referem os dados pessoais que são objeto de tratamento. 
+TRATAMENTO: Toda operação realizada com dados pessoais, como 
+coleta, recepção, classificação, utilização, acesso, reprodução, 
+transmissão, processamento, arquivamento ou eliminação 
+ 
+1. Propósito e Escopo 
+A Política de Proteção de Dados Pessoais tem por objetivo 
+estabelecer diretrizes, princípios e conceitos a serem seguidos por todas 
+as pessoas e entidades que se relacionam com a 1pra1 que realizam 
+operações de tratamento de dados pessoais. Isso inclui, 
+obrigatoriamente, o tratamento de dados de apostadores, transações 
+financeiras, biometria para fins de KYC e monitoramento de 
+comportamento de jogo. Esta Política regula a proteção de dados em que 
+a 1pra1 atua como Controladora, abrangendo meios digitais e físicos. 
+Esta PPDP aplica -se a todos os colaboradores, prestadores de 
+serviço e parceiros estratégicos, incluindo a Oddsgate e gateways de 
+pagamento, que processem informações em nome da 1pra1. 
+  
+POLÍTICA DE PROTEÇÃO E PRIVACIDADE DE DADOS PESSOAIS  
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+2. Declarações da Política 
+ 
+CAPÍTULO I - Das Disposições Gerais 
+Art. 1º. Fica instituída a Política de Proteção de Dados Pessoais da 1pra1 
+para a implementação de ações que garantam a salvaguarda de dados 
+pessoais e dados pessoais sensíveis (como biometria). 
+Art. 2º. A aplicação desta Política será pautada pelo dever de boa -fé e 
+pela observância dos princípios de finalidade, adequação e necessidade 
+previstos na LGPD. 
+ 
+Art. 3º. São responsabilidades da 1pra1: 
+I. Atender ao disposto nos normativos da ANPD e da Secretaria de 
+Prêmios e Apostas (SPA/MF). 
+II. Elaborar o Relatório de Impacto à Proteção de Dados Pessoais (RIPD) 
+relacionado a operações de alto risco, como o tratamento de dados 
+biométricos de KYC. 
+III. Desenvolver e atualizar os avisos de privacidade e inventários de 
+dados (ROPA). 
+ 
+CAPÍTULO II - Tratamento de Dados Pessoais 
+Art. 4º. O tratamento de dados pessoais deve ser sempre realizado para 
+o atendimento de sua finalidade contratual e legal, especificamente para 
+a operação de apostas e prevenção à lavagem de dinheiro (PLD/FT). 
+Art. 5º. A 1pra1 deve adotar mecanismos para que os titulares de dados 
+(apostadores) usufruam dos direitos assegurados pela LGPD através de 
+um canal de atendimento específico (DSAR). 
+ 
+POLÍTICA DE PROTEÇÃO E PRIVACIDADE DE DADOS PESSOAIS  
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+CAPÍTULO III - Conscientização e Capacitação 
+Art. 6º. Todos os colaboradores com acesso a dados de apostadores ou 
+transações financeiras devem participar de programas de capacitação e 
+sensibilização em privacidade para adequar o tema aos seus papéis 
+operacionais. 
+ 
+CAPÍTULO IV - Segurança e Boas Práticas 
+Art. 8º. Para mitigar incidentes e acessos não autorizados, devem ser 
+adotadas as seguintes medidas: 
+I. Acesso limitado apenas às pessoas estritamente necessárias (Menor 
+Privilégio). 
+II. Uso obrigatório de criptografia em repouso e em trânsito para todo 
+dado pessoal ou financeiro armazenado em nuvem. 
+III. Assinatura obrigatória de Termos de Responsabilidade e acordos de 
+confidencialidade com operadores. 
+ 
+Art. 9º. Qualquer incidente de segurança que acarrete risco aos titulares 
+deve ser comunicado à ANPD e aos órgãos reguladores competentes 
+pela Equipe de Resposta a Incidentes (ETIR). 
+ 
+CAPÍTULO VI - Funções e Responsabilidades 
+Art. 10º. Compete à 1pra1 (Controladora): zelar pelo cumprimento da 
+LGPD, indicar o Encarregado de Dados (DPO) e prover recursos para a 
+proteção do dado. 
+Art. 11º. Compete ao operador (ex: Oddsgate, Legitimuz): seguir 
+estritamente as diretrizes da 1pra1, sendo vedado decidir 
+unilateralmente sobre as finalidades do tratamento. 
+POLÍTICA DE PROTEÇÃO E PRIVACIDADE DE DADOS PESSOAIS  
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+Art. 12º. Compete ao Encarregado (DPO): atuar como canal de 
+comunicação com a ANPD, receber reclamações dos titulares e orientar 
+a organização na elaboração de instrumentos contratuais de 
+privacidade. 
+ 
+CAPÍTULO VII - Contratos, Convênios e Instrumentos 
+Art. 13º. Os contratos com fornecedores de iGaming e gateways de 
+pagamento deverão incorporar cláusulas que contemplem: 
+I. Requisitos mínimos de segurança técnica compatíveis com a Portaria 
+SPA/MF 722. 
+II. Proibição de processamento de dados para finalidades divergentes da 
+principal. 
+III. Condições de descarte seguro ou devolução dos dados após o 
+encerramento do vínculo contratual. 
+ 
+Art. 14º. Disposições Finais: Esta Política entra em vigor na data de sua 
+publicação e deverá ser revisada anualmente ou sempre que houver 
+mudanças significativas no cenário regulatório das apostas online no 
+Brasil. 
+ 
+CAPÍTULO VI – DA REVISÃO E MANUTENÇÃO 
+Art. 1 5º. Periodicidade de Revisão: Esta Política de Segurança da 
+Informação deve ser revisada anualmente, ou em prazo inferior, caso 
+ocorram as seguintes situações:  
+I. Mudanças significativas na infraestrutura tecnológica ou no 
+modelo de negócio da 1pra1;  
+POLÍTICA DE PROTEÇÃO E PRIVACIDADE DE DADOS PESSOAIS  
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+II. II. Publicação de novas normas pela Secretaria de Prêmios e 
+Apostas (SPA/MF) ou pela ANPD;  
+III. III. Ocorrência de incidente de segurança grave que exija ajuste 
+nos controles vigentes. 
+ 
+Aprovação: 
+ 

@@ -1,0 +1,278 @@
+POLÍTICA DE SEGURANÇA DA INFORMAÇÃO (PSI) – 1pra1 
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+POLÍTICA DE SEGURANÇA DA INFORMAÇÃO (PSI) – 1pra1 
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+ 
+Organização: 1pra1 (Apostas Online) 
+Referência Normativa: LGPD (Lei 13.709/18), Portaria SPA/MF nº 722 e modelo 
+PPSI (gov.br) 
+ 
+Autoria Revisor Data de 
+Criação Versão Data de 
+Revisão 
+Nº da 
+Revisão 
+SykeSec 
+Consulting --- 20/05/2024 1.0 20/05/2024 00 
+ 
+ 
+TERMOS E DEFINIÇÕES (GLOSSÁRIO) 
+Para os efeitos desta Política e de suas normas complementares, 
+aplicam-se as seguintes definições: 
+• CONFIDENCIALIDADE: Propriedade pela qual se assegura que a 
+informação não esteja disponível ou não seja revelada à pessoa, 
+ao sistema, ao órgão ou à entidade não autorizados nem 
+credenciados. 
+• DADO PESSOAL: Informação relacionada a pessoa natural 
+identificada ou identificável. 
+• DADO PESSOAL SENSÍVEL: Dado pessoal sobre origem racial ou 
+étnica, convicção religiosa, opinião política, filiação a sindicato ou 
+a organização de caráter religioso, filosófico ou político, dado 
+referente à saúde ou à vida sexual, dado genético ou biométri co, 
+quando vinculado a uma pessoa natural. 
+POLÍTICA DE SEGURANÇA DA INFORMAÇÃO (PSI) – 1pra1 
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+• DISPONIBILIDADE: Propriedade pela qual se assegura que a 
+informação esteja acessível e utilizável, sob demanda, por uma 
+pessoa física ou determinado sistema, órgão ou entidade 
+devidamente autorizados. 
+• INFORMAÇÃO: Dados, processados ou não, que podem ser 
+utilizados para produção e para transmissão de conhecimento, 
+contidos em qualquer meio, suporte ou formato. 
+• INTEGRIDADE: Propriedade pela qual se assegura que a 
+informação não foi modificada ou destruída de maneira não 
+autorizada ou acidental. 
+• SEGURANÇA DA INFORMAÇÃO: Ações que objetivam viabilizar e 
+assegurar a disponibilidade, a integridade, a confidencialidade e a 
+autenticidade das informações. 
+• TITULAR DO DADO: Pessoa natural a quem se referem os dados 
+pessoais que são objeto de tratamento. 
+ 
+CAPÍTULO I – DO OBJETIVO, PROPÓSITO E ESCOPO 
+Art. 1º.  Fica instituída a Política de Segurança da Informação (PSI) da 
+1pra1, com a finalidade de estabelecer os princípios, diretrizes, 
+responsabilidades e competências para a proteção dos ativos de 
+informação e salvaguarda dos dados da organização. 
+Art. 2º.  Esta Política visa garantir a confidencialidade, integridade e 
+disponibilidade das informações, assegurando a continuidade dos 
+POLÍTICA DE SEGURANÇA DA INFORMAÇÃO (PSI) – 1pra1 
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+negócios operacionais de apostas, a mitigação de riscos cibernéticos e 
+o estrito cumprimento da Lei Geral de Proteção de Dados (LGPD) e das 
+regulamentações da Secretaria de Prêmios e Apostas (SPA/MF). 
+Art. 3º.  Escopo e Aplicação:  Esta PSI aplica -se a todos os ativos de 
+informação da 1pra1, incluindo, mas não se limitando a: I. Dados de 
+apostadores, transações financeiras, sistemas de sportsbook, biometria 
+KYC e infraestrutura de rede; II. Todos os colaboradores diretos, 
+prestadores de serviço e parceiros estratégicos (incluindo a Oddsgate e 
+gateways de pagamento); III. Terceiros que acessem ou processem 
+informações em nome da 1pra1, mediante assinatura obrigatória de 
+Termo de Responsabilidade. 
+ 
+CAPÍTULO II – DOS PRINCÍPIOS E DIRETRIZES FUNDAMENTAIS 
+Art. 4º. As ações de segurança da informação da 1pra1 são norteadas 
+pelos seguintes princípios: 
+• Confidencialidade: Garantia de que o acesso aos dados 
+(especialmente financeiros, saldos e biometria) seja exclusivo a 
+indivíduos autorizados. 
+• Integridade: Salvaguarda da precisão e completude das 
+transações de apostas e contas, protegendo-as contra alterações 
+não autorizadas. 
+POLÍTICA DE SEGURANÇA DA INFORMAÇÃO (PSI) – 1pra1 
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+• Disponibilidade: Assegurar que as plataformas de apostas e 
+liquidação financeira estejam acessíveis aos usuários sempre que 
+necessário. 
+• Autenticidade e Irretratabilidade:  Garantir a veracidade da 
+origem da informação e a impossibilidade de negação de uma 
+transação realizada. 
+• Menor Privilégio ( Need-to-Know): Pessoas e sistemas devem 
+possuir apenas o nível de acesso estritamente necessário para 
+realizar suas tarefas. 
+Art. 5º. Toda informação gerada ou custodiada pela 1pra1 é considerada 
+um ativo de valor e está sujeita a monitoramento e auditoria, respeitados 
+os limites legais e de privacidade. 
+ 
+CAPÍTULO III – DA ESTRUTURA DE GOVERNANÇA E GESTÃO 
+Art. 6º. A estrutura de Gestão de Segurança da Informação da 1pra1 é 
+composta por: I. Alta Administração: Responsável por prover recursos 
+e formalizar o comprometimento com a segurança. II. Comitê de 
+Segurança da Informação: Órgão deliberativo para estratégias de risco. 
+III. Gestor de Segurança da Informação (CISO):  Responsável por 
+coordenar normas, estimular a capacitação e verificar resultados de 
+auditorias. IV . Encarregado de Dados (DPO): Responsável por zelar pelo 
+cumprimento da LGPD e interface com os titulares e a ANPD. V . Equipe 
+de Resposta a Incidentes (ETIR):  Responsável pela prevenção, 
+tratamento de incidentes cibernéticos e recuperação de sistemas. 
+POLÍTICA DE SEGURANÇA DA INFORMAÇÃO (PSI) – 1pra1 
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+Art. 7º.  A Gestão da Segurança da Informação contemplará os 
+processos de: tratamento da informação, segurança física, gestão de 
+incidentes, gestão de ativos, controles de acesso, gestão de riscos e 
+continuidade de negócios. 
+ 
+CAPÍTULO IV – DIRETRIZES DE CONTROLE DE ACESSO E SEGURANÇA 
+OPERACIONAL 
+Art. 8º. Identificação e Autenticação:  
+I. O uso de credenciais é pessoal e intransferível.  
+II. II. É obrigatória a utilização de Múltiplos Fatores de 
+Autenticação (MFA) para todos os acessos a sistemas críticos, 
+acessos remotos (VPN) e contas administrativas. III. É vedada a 
+divulgação a terceiros de qualquer mecanismo de autenticação 
+ou chaves de segurança. 
+Art. 9º. Gestão de Senhas:  As senhas devem possuir no mínimo 8 
+caracteres (contendo letras, números e símbolos). Devem ser alteradas 
+a cada 45 dias para usuários comuns e 30 dias para administradores, 
+sendo proibida a reutilização das últimas 5 senhas. 
+Art. 10. Segurança no Ambiente de Trabalho:  
+I. Mesa Limpa e Tela Bloqueada: O colaborador deve bloquear a 
+tela do computador ao se ausentar. Documentos físicos com 
+dados pessoais não podem ser deixados expostos.  
+II. II. Uso de Recursos:  Internet e e -mail são para fins 
+profissionais. É proibido o envio de dados confidenciais (ex: 
+POLÍTICA DE SEGURANÇA DA INFORMAÇÃO (PSI) – 1pra1 
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+planilhas de CPFs ou saldos) para e -mails pessoais ou nuvens 
+públicas sem criptografia e autorização prévia. 
+Diretriz Específica– Segurança Operacional 
+Art. 10-A. Do Uso de Computação em Nuvem: A utilização de serviços 
+em nuvem (como instâncias da plataforma de sportsbook, 
+armazenamento de logs de apostas e bancos de dados KYC) deve 
+observar as seguintes regras:  
+I. Finalidade Profissional: O uso de recursos de computação em 
+nuvem fornecidos pela 1pra1 é exclusivo para fins profissionais 
+e atividades relacionadas ao negócio de apostas, sendo vedado 
+o uso para fins particulares.  
+II. Seleção de Provedores: A contratação de serviços em nuvem 
+deve priorizar provedores que comprovem conformidade com 
+padrões internacionais de segurança (ISO 27001, SOC2) e que 
+permitam a auditoria conforme exigido pela Portaria SPA/MF 
+722.  
+III. Segurança de Dados na Nuvem:  Todo dado pessoal ou 
+financeiro armazenado em ambiente de nuvem deve, 
+obrigatoriamente, ser protegido por criptografia em repouso e 
+em trânsito, com controle rigoroso de acesso baseado no 
+princípio do menor privilégio.  
+IV. Conformidade Geográfica: O armazenamento de dados em 
+nuvem deve respeitar a legislação brasileira (LGPD), 
+assegurando que transferências internacionais de dados 
+POLÍTICA DE SEGURANÇA DA INFORMAÇÃO (PSI) – 1pra1 
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+ocorram apenas para países com nível de proteção adequado 
+ou mediante salvaguardas contratuais.  
+V. Monitoramento: Todo acesso administrativo aos consoles de 
+gestão da nuvem da 1pra1 deve ser registrado em trilhas de 
+auditoria e protegido por Múltiplo Fator de Autenticação (MFA). 
+ 
+CAPÍTULO V – DAS RELAÇÕES COM TERCEIROS E AUDITORIA 
+Art. 11. Todos os contratos com provedores B2B, plataformas e gateways 
+de pagamento deverão conter cláusulas específicas de obrigatoriedade 
+de atendimento a esta Política e padrões de segurança técnica 
+compatíveis com a Portaria SPA/MF 722. 
+Art. 12. A 1pra1 reserva-se o direito de realizar auditorias de segurança 
+em seus próprios sistemas e solicitar evidências de conformidade de 
+seus parceiros estratégicos. 
+CAPÍTULO VI – DAS VEDAÇÕES, RESPONSABILIDADES E 
+PENALIDADES 
+Art. 13. É vedada a utilização de recursos tecnológicos para acesso ou 
+divulgação de materiais que infrinjam a legislação vigente ou que 
+possam comprometer a reputação da 1pra1. 
+Art. 14. Ações que violem os controles estabelecidos nesta PSI ou que 
+resultem em quebra de sigilo de dados estarão sujeitas a: I. Revogação 
+imediata de acessos e privilégios. II. Sanções administrativas e 
+disciplinares (advertência, suspensão ou demissão por justa causa). III. 
+Responsabilização civil e penal, conforme a gravidade do incidente. 
+POLÍTICA DE SEGURANÇA DA INFORMAÇÃO (PSI) – 1pra1 
+ 
+CONFIDENCIALIDADE E PROPRIEDADE INTELECTUAL – 1pra1 Este documento é de propriedade exclusiva da 
+1pra1 e contém informações classificadas como CONFIDENCIAIS E ESTRATÉGICAS. É proibida a reprodução, 
+distribuição ou divulgação total ou parcial deste conteúdo para terceiros sem autorização prévia e expressa da 
+Diretoria ou do DPO. O uso indevido destas informações está sujeito a sanções disciplinares e medidas judiciais 
+cabíveis, nos termos da Lei nº 9.610/98 e da LGPD (Lei nº 13.709/18). 
+Art. 15. Disposições Finais: Esta Política entra em vigor na data de sua 
+publicação e deverá ser revisada anualmente ou sempre que houver 
+mudanças significativas no cenário regulatório das apostas online no 
+Brasil. 
+ 
+CAPÍTULO VI – DA REVISÃO E MANUTENÇÃO 
+Art. 16. Periodicidade de Revisão: Esta Política de Segurança da 
+Informação deve ser revisada anualmente, ou em prazo inferior, caso 
+ocorram as seguintes situações:  
+I. Mudanças significativas na infraestrutura tecnológica ou no 
+modelo de negócio da 1pra1;  
+II. II. Publicação de novas normas pela Secretaria de Prêmios e 
+Apostas (SPA/MF) ou pela ANPD;  
+III. III. Ocorrência de incidente de segurança grave que exija ajuste 
+nos controles vigentes. 
+Art. 17. Vigência: Esta política entra em vigor imediatamente após sua 
+aprovação pela Alta Administração e divulgação a todos os 
+colaboradores e parceiros. 
+Aprovação: 
+ 
