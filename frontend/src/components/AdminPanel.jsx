@@ -21,7 +21,10 @@ function AdminPanel({
     podium,
     fullRanking,
     allTimeRanking,
-    playerAnswers
+    allTimeRanking,
+    playerAnswers,
+    currentQuestionIndex,
+    totalQuestions
 }) {
     // Show "Novo Jogo?" modal on first load
     const [showNewGameModal, setShowNewGameModal] = useState(true);
@@ -133,6 +136,10 @@ function AdminPanel({
                             <div className="counter-item">
                                 <span className="counter-label">Faltam:</span>
                                 <span className="counter-value urgent">{Math.max(0, answerStats.total - answerStats.answered)}</span>
+                            </div>
+                            <div className="counter-item">
+                                <span className="counter-label">Questão:</span>
+                                <span className="counter-value">{(currentQuestionIndex || 0) + 1} / {totalQuestions || 30}</span>
                             </div>
                         </div>
                         <Question question={question} timer={timer} readOnly={true} />

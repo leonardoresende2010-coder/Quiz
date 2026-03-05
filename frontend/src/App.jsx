@@ -33,6 +33,8 @@ function App() {
   const [nickname, setNickname] = useState('');
   const [isJoined, setIsJoined] = useState(false);
   const [isApproved, setIsApproved] = useState(false);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [totalQuestions, setTotalQuestions] = useState(0);
   const [hasSeenIntro, setHasSeenIntro] = useState(false);
 
   useEffect(() => {
@@ -50,6 +52,8 @@ function App() {
       if (data.fullRanking) setFullRanking(data.fullRanking);
       if (data.allTimeRanking) setAllTimeRanking(data.allTimeRanking);
       if (data.answers) setPlayerAnswers(data.answers);
+      if (data.currentQuestionIndex !== undefined) setCurrentQuestionIndex(data.currentQuestionIndex);
+      if (data.totalQuestions !== undefined) setTotalQuestions(data.totalQuestions);
     });
 
     socket.on('time_tick', (data) => {
@@ -139,6 +143,8 @@ function App() {
               fullRanking={fullRanking}
               allTimeRanking={allTimeRanking}
               playerAnswers={playerAnswers}
+              currentQuestionIndex={currentQuestionIndex}
+              totalQuestions={totalQuestions}
             />
           } />
         </Routes>

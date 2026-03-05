@@ -131,16 +131,16 @@
 }
 
 .qcard-body {
-    padding: 24px 28px;
+    padding: 18px 22px;
     flex: 1;
 }
 
 .qcard-text {
-    font-size: 1.55rem;
+    font-size: 1.35rem;
     font-weight: 800;
     color: var(--text);
-    line-height: 1.4;
-    margin-bottom: 12px;
+    line-height: 1.3;
+    margin-bottom: 8px;
 }
 
 .qdiff {
@@ -277,12 +277,12 @@
     }
 
     .qcard-body {
-        padding: 16px 20px;
+        padding: 12px 14px;
     }
 
     .qcard-text {
-        font-size: 1.15rem;
-        margin-bottom: 8px;
+        font-size: 1.05rem;
+        margin-bottom: 6px;
     }
 
     .qoptions {

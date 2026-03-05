@@ -104,7 +104,9 @@ const revealAnswer = async () => {
         players: updatedPlayers,
         fastestPlayer: fastestNickname,
         correctPlayers,
-        answers: answersByNickname
+        answers: answersByNickname,
+        currentQuestionIndex,
+        totalQuestions: questions.length
     });
 };
 
@@ -123,7 +125,9 @@ const startNextQuestion = async () => {
     io.emit('game_state_change', {
         gameState,
         question: questions[currentQuestionIndex],
-        players: currentPlayers
+        players: currentPlayers,
+        currentQuestionIndex,
+        totalQuestions: questions.length
     });
 
     // Delay timer to account for intro video (approx 1.5s)
@@ -203,7 +207,9 @@ io.on('connection', async (socket) => {
         players: admitted,
         pendingPlayers: pending,
         question: gameState === 'QUESTION' ? questions[currentQuestionIndex] : null,
-        timer: gameState === 'QUESTION' ? timer : null
+        timer: gameState === 'QUESTION' ? timer : null,
+        currentQuestionIndex: gameState !== 'LOBBY' ? currentQuestionIndex : null,
+        totalQuestions: questions.length
     });
 
     socket.on('join_game', async (nickname) => {
