@@ -37,7 +37,7 @@ function Intro({ onStart }) {
                     <video
                         ref={videoRef}
                         className="intro-video"
-                        src="/bg/abertura.mp4"
+                        src="/bg/Fichas_sykesec.mp4"
                         playsInline
                         onEnded={handleVideoEnd}
                     />
