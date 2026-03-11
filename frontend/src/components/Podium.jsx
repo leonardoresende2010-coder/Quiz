@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 import SlotMachine from './SlotMachine';
 import './Podium.css';
 
@@ -31,7 +31,7 @@ function Podium({ podium, fullRanking, isAdmin }) {
             p.score
         ]);
 
-        doc.autoTable({
+        autoTable(doc, {
             startY: 50,
             head: [['Posição', 'Participante', 'Pontuação']],
             body: tableData,
