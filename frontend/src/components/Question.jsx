@@ -14,6 +14,7 @@ function Question({ question, timer, onSubmitAnswer, readOnly }) {
     // Initial load / question change
     useEffect(() => {
         if (question?.id) {
+            // eslint-disable-next-line
             setBg(prev => getNewBg(prev));
             setSelectedIndex(null);
 

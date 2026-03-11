@@ -16,6 +16,15 @@ import './components/ParticipantList.css';
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
 const socket = io(BACKEND_URL);
 
+const PlayerWaitScreen = () => (
+  <div className="player-wait-screen">
+    <div className="wait-card">
+      <p>Confira o resultado no telão oficial!</p>
+      <div className="wait-icon">🎰</div>
+    </div>
+  </div>
+);
+
 function App() {
   const [gameState, setGameState] = useState('LOBBY');
   const [players, setPlayers] = useState([]);
@@ -30,7 +39,7 @@ function App() {
   const [allTimeRanking, setAllTimeRanking] = useState([]);
   const [playerAnswers, setPlayerAnswers] = useState({});
 
-  const [nickname, setNickname] = useState('');
+  const [, setNickname] = useState('');
   const [isJoined, setIsJoined] = useState(false);
   const [isApproved, setIsApproved] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -89,7 +98,7 @@ function App() {
   const handleStartGame = () => socket.emit('admin_start_game');
   const handleSubmitAnswer = (index) => socket.emit('submit_answer', index);
 
-  const PlayerWait = ({ type }) => (
+  const PlayerWait = () => (
     <div className="player-wait-screen">
       <div className="wait-card">
         <p>Confira o resultado no telão oficial!</p>
@@ -118,9 +127,9 @@ function App() {
                     <Question question={question} timer={timer} onSubmitAnswer={handleSubmitAnswer} />
                   )}
 
-                  {gameState === 'REVEAL' && <PlayerWait type="REVEAL" />}
+                  {gameState === 'REVEAL' && <PlayerWaitScreen />}
 
-                  {gameState === 'PODIUM' && <PlayerWait type="PODIUM" />}
+                  {gameState === 'PODIUM' && <PlayerWaitScreen />}
                 </div>
 
               </div>

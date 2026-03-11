@@ -15,12 +15,10 @@ function AdminPanel({
     question,
     timer,
     correctAnswerIndex,
-    scores,
     fastestPlayer,
     correctPlayers,
     podium,
     fullRanking,
-    allTimeRanking,
     allTimeRanking,
     playerAnswers,
     currentQuestionIndex,
@@ -43,6 +41,7 @@ function AdminPanel({
     // Reset stats when question code changes
     useEffect(() => {
         if (gameState === 'QUESTION') {
+            // eslint-disable-next-line
             setAnswerStats(prev => ({ ...prev, answered: 0 }));
         }
     }, [question?.id, gameState]);
@@ -171,7 +170,7 @@ function AdminPanel({
                 )}
 
                 {gameState === 'PODIUM' && (
-                    <Podium podium={podium} fullRanking={fullRanking} allTimeRanking={allTimeRanking} />
+                    <Podium podium={podium} fullRanking={fullRanking} allTimeRanking={allTimeRanking} isAdmin={true} />
                 )}
             </div>
         </div>

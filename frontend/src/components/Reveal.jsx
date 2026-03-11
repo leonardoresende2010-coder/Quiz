@@ -6,7 +6,7 @@ const BG = getRandomBg();
 
 const OPTION_LETTERS = ['A', 'B', 'C', 'D'];
 
-function Reveal({ question, correctAnswerIndex, scores, fastestPlayer, myNickname, correctPlayers, playerAnswers, isAdmin }) {
+function Reveal({ question, correctAnswerIndex, scores, fastestPlayer, myNickname, playerAnswers, isAdmin }) {
     if (!question) return null;
 
     const myScoreObj = scores.find(s => s.nickname === myNickname);

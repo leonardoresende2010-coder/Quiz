@@ -1,0 +1,38 @@
+﻿
+> frontend@0.0.0 lint
+> eslint .
+
+
+D:\Quiz\frontend\src\components\AdminPanel.jsx
+  18:5   error  'scores' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            no-unused-vars
+  45:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  43 |     useEffect(() => {
+  44 |         if (gameState === 'QUESTION') {
+> 45 |             setAnswerStats(prev => ({ ...prev, answered: 0 }));
+     |             ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  46 |         }
+  47 |     }, [question?.id, gameState]);
+  48 |  react-hooks/set-state-in-effect
+
+D:\Quiz\frontend\src\components\SlotMachine.jsx
+  82:26  warning  The ref value 'audioRefSpin.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'audioRefSpin.current' to a variable inside the effect, and use that variable in the cleanup function  react-hooks/exhaustive-deps
+  83:26  warning  The ref value 'audioRefStop.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'audioRefStop.current' to a variable inside the effect, and use that variable in the cleanup function  react-hooks/exhaustive-deps
+  84:25  warning  The ref value 'audioRefWin.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'audioRefWin.current' to a variable inside the effect, and use that variable in the cleanup function    react-hooks/exhaustive-deps
+
+D:\Quiz\frontend\start-vite.js
+   2:19  error  'require' is not defined    no-undef
+   3:14  error  'require' is not defined    no-undef
+   6:15  error  '__dirname' is not defined  no-undef
+   9:14  error  '__dirname' is not defined  no-undef
+  12:19  error  'process' is not defined    no-undef
+  17:5   error  'process' is not defined    no-undef
+
+Ô£û 11 problems (8 errors, 3 warnings)
+

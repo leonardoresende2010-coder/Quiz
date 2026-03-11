@@ -21,6 +21,19 @@ function SlotMachine({ podium, onComplete }) {
     const [players, setPlayers] = useState([null, null, null]);
     const hasStarted = useRef(false);
 
+    // Confetti styles generated outside of render
+    const [confetti, setConfetti] = useState([]);
+
+    useEffect(() => {
+        if (celebrate) {
+            // eslint-disable-next-line
+            setConfetti(Array.from({ length: 30 }).map(() => ({
+                left: `${Math.random() * 100}%`,
+                delay: `${Math.random() * 2}s`
+            })));
+        }
+    }, [celebrate]);
+
     useEffect(() => {
         if (hasStarted.current) return;
         hasStarted.current = true;
@@ -29,6 +42,7 @@ function SlotMachine({ podium, onComplete }) {
         const p0 = podium[0] || { nickname: '---', score: 0 }; // Gold
         const p2 = podium[2] || { nickname: '---', score: 0 }; // Bronze
 
+        // eslint-disable-next-line
         setPlayers([p1, p0, p2]);
 
         const sequence = async () => {
@@ -57,6 +71,11 @@ function SlotMachine({ podium, onComplete }) {
             }
         };
 
+        const playSound = (audio) => {
+            audio.currentTime = 0;
+            audio.play().catch(e => console.warn('Audio blocked', e));
+        };
+
         sequence();
 
         return () => {
@@ -65,11 +84,6 @@ function SlotMachine({ podium, onComplete }) {
             audioRefWin.current.pause();
         };
     }, [podium, onComplete]);
-
-    const playSound = (audio) => {
-        audio.currentTime = 0;
-        audio.play().catch(e => console.warn('Audio blocked', e));
-    };
 
     // Calculate spinning state for each reel (array index: 0=Silver, 1=Gold, 2=Bronze)
     const isSpinning = [
@@ -154,10 +168,10 @@ function SlotMachine({ podium, onComplete }) {
             {/* Confetti Elements */}
             {celebrate && (
                 <div className="confetti-container">
-                    {Array.from({ length: 30 }).map((_, i) => (
+                    {confetti.map((style, i) => (
                         <div key={i} className={`confetti c-${i % 5}`} style={{
-                            left: `${Math.random() * 100}%`,
-                            animationDelay: `${Math.random() * 2}s`
+                            left: style.left,
+                            animationDelay: style.delay
                         }}></div>
                     ))}
                 </div>
