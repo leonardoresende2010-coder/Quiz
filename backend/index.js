@@ -19,6 +19,7 @@ let gameState = 'LOBBY';
 let currentQuestionIndex = 0;
 let timer = 30;
 let timerInterval = null;
+let registrationOpen = false; // true quando admin tiver se conectado
 
 // FIX: Store answers with nickname directly, not socketId
 // socketId -> { nickname, optionIndex, timeTaken, correct }
@@ -170,7 +171,7 @@ const endGame = async () => {
 const broadcastLobbyState = async () => {
     const admitted = await prisma.user.findMany({ where: { isApproved: true } });
     const pending = await prisma.user.findMany({ where: { isApproved: false } });
-    io.emit('game_state_change', { gameState, players: admitted, pendingPlayers: pending });
+    io.emit('game_state_change', { gameState, players: admitted, pendingPlayers: pending, registrationOpen });
 };
 
 // --- Reset Game (New Game) ---
@@ -181,6 +182,7 @@ const resetGame = async () => {
     timer = 30;
     currentAnswers = {};
     socketToNickname = {};
+    // Mantém registrationOpen — admin ainda está conectado
 
     // Clear ALL users from DB
     await prisma.user.deleteMany({});
@@ -191,7 +193,8 @@ const resetGame = async () => {
         players: [],
         pendingPlayers: [],
         question: null,
-        timer: null
+        timer: null,
+        registrationOpen
     });
 };
 
@@ -209,7 +212,15 @@ io.on('connection', async (socket) => {
         question: gameState === 'QUESTION' ? questions[currentQuestionIndex] : null,
         timer: gameState === 'QUESTION' ? timer : null,
         currentQuestionIndex: gameState !== 'LOBBY' ? currentQuestionIndex : null,
-        totalQuestions: questions.length
+        totalQuestions: questions.length,
+        registrationOpen
+    });
+
+    // Admin abre o registro de jogadores
+    socket.on('admin_open_registration', () => {
+        registrationOpen = true;
+        console.log('[admin_open_registration] Registro aberto para jogadores.');
+        io.emit('game_state_change', { registrationOpen });
     });
 
     socket.on('join_game', async (nickname) => {

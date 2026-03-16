@@ -15,8 +15,22 @@ import './components/ParticipantList.css';
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
 const socket = io(BACKEND_URL);
 
-// Senha do admin — em produção, valide no backend
 const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || 'admin123';
+
+/* ── Tela de espera do jogador (admin ainda não entrou) ─────── */
+const WaitingForAdmin = () => (
+  <div className="player-wait-screen">
+    <div className="wait-card">
+      <div className="wait-icon" style={{ fontSize: '3rem', marginBottom: '16px' }}>🎰</div>
+      <h2 style={{ color: '#c9a84c', fontFamily: 'Rajdhani, sans-serif', letterSpacing: '2px', marginBottom: '10px' }}>
+        QuizArena
+      </h2>
+      <p style={{ color: 'rgba(255,255,255,0.55)', fontWeight: 700 }}>
+        Aguardando o admin abrir a sessão...
+      </p>
+    </div>
+  </div>
+);
 
 const PlayerWaitScreen = () => (
   <div className="player-wait-screen">
@@ -27,7 +41,7 @@ const PlayerWaitScreen = () => (
   </div>
 );
 
-/* ── Wrapper de Login do Admin ────────────────── */
+/* ── Wrapper de Login do Admin ────────────────────────────── */
 function AdminLoginWrapper({ children }) {
   const [authed, setAuthed] = useState(false);
   const [error, setError] = useState(null);
@@ -42,19 +56,13 @@ function AdminLoginWrapper({ children }) {
   };
 
   if (!authed) {
-    return (
-      <LoginScreen
-        mode="admin"
-        onLogin={handleLogin}
-        error={error}
-      />
-    );
+    return <LoginScreen mode="admin" onLogin={handleLogin} error={error} />;
   }
 
   return children;
 }
 
-/* ── App Principal ────────────────────────────── */
+/* ── App Principal ────────────────────────────────────────── */
 function App() {
   const [gameState, setGameState] = useState('LOBBY');
   const [players, setPlayers] = useState([]);
@@ -71,16 +79,14 @@ function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [totalQuestions, setTotalQuestions] = useState(0);
 
-  // Estado de login do jogador
+  // Jogador
   const [nickname, setNickname] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);   // passou pela tela de login
-  const [isJoined, setIsJoined] = useState(false);        // socket emitiu join_game
+  const [isJoined, setIsJoined] = useState(false);
   const [isApproved, setIsApproved] = useState(false);
-  const [loginError, setLoginError] = useState(null);
+  const [registrationOpen, setRegistrationOpen] = useState(false);
 
   useEffect(() => {
     socket.on('game_state_change', (data) => {
-      console.log('Game State Update:', data);
       if (data.gameState) setGameState(data.gameState);
       if (data.players) setPlayers(data.players);
       if (data.pendingPlayers) setPendingPlayers(data.pendingPlayers);
@@ -95,17 +101,15 @@ function App() {
       if (data.answers) setPlayerAnswers(data.answers);
       if (data.currentQuestionIndex !== undefined) setCurrentQuestionIndex(data.currentQuestionIndex);
       if (data.totalQuestions !== undefined) setTotalQuestions(data.totalQuestions);
+      if (data.registrationOpen !== undefined) setRegistrationOpen(data.registrationOpen);
     });
 
     socket.on('time_tick', (data) => setTimer(data.timer));
     socket.on('pending_approval', () => setIsApproved(false));
     socket.on('player_admitted', () => setIsApproved(true));
     socket.on('bonus_point', () => console.log('Turbo Bonus!'));
-    socket.on('error', (msg) => setLoginError(msg));
-    socket.on('disconnect', () => {
-      setIsJoined(false);
-      setIsApproved(false);
-    });
+    socket.on('error', (msg) => alert(msg));
+    socket.on('disconnect', () => { setIsJoined(false); setIsApproved(false); });
 
     return () => {
       socket.off('game_state_change');
@@ -118,12 +122,9 @@ function App() {
     };
   }, []);
 
-  /** Chamado pelo LoginScreen do jogador */
-  const handlePlayerLogin = (name) => {
+  /* Jogador digita apelido e entra */
+  const handleJoin = (name) => {
     setNickname(name);
-    setIsLoggedIn(true);
-    setLoginError(null);
-    // Entra no jogo via socket
     socket.emit('join_game', name);
     setIsJoined(true);
   };
@@ -131,61 +132,50 @@ function App() {
   const handleStartGame = () => socket.emit('admin_start_game');
   const handleSubmitAnswer = (index) => socket.emit('submit_answer', index);
 
-  const PlayerWait = () => (
-    <div className="player-wait-screen">
-      <div className="wait-card">
-        <p>Confira o resultado no telão oficial!</p>
-        <div className="wait-icon">🎰</div>
-      </div>
-    </div>
-  );
-
   const showSidebar = gameState !== 'PODIUM' && isApproved;
 
   return (
     <BrowserRouter>
       <div className="app-container">
         <Routes>
-          {/* ── Rota do Jogador ── */}
+
+          {/* ── Rota do Jogador ─────────────────────── */}
           <Route
             path="/"
             element={
-              !isLoggedIn ? (
-                <LoginScreen
-                  mode="player"
-                  onLogin={handlePlayerLogin}
-                  error={loginError}
-                />
-              ) : (
-                <div className={showSidebar ? 'game-with-sidebar' : 'game-without-sidebar'}>
-                  <div className="game-main-content">
-                    {gameState === 'LOBBY' && (
-                      <Lobby
-                        players={players}
-                        isJoined={isJoined}
-                        isApproved={isApproved}
-                        onJoin={() => { }} // já foi feito no login
-                        myNickname={nickname}
-                      />
-                    )}
+              <div className={showSidebar ? 'game-with-sidebar' : 'game-without-sidebar'}>
+                <div className="game-main-content">
 
-                    {gameState === 'QUESTION' && (
-                      <Question
-                        question={question}
-                        timer={timer}
-                        onSubmitAnswer={handleSubmitAnswer}
-                      />
-                    )}
+                  {/* Admin ainda não entrou — tela de espera sem input */}
+                  {!registrationOpen && <WaitingForAdmin />}
 
-                    {gameState === 'REVEAL' && <PlayerWaitScreen />}
-                    {gameState === 'PODIUM' && <PlayerWaitScreen />}
-                  </div>
+                  {/* Admin entrou mas jogador ainda não digitou apelido */}
+                  {registrationOpen && gameState === 'LOBBY' && (
+                    <Lobby
+                      players={players}
+                      isJoined={isJoined}
+                      isApproved={isApproved}
+                      onJoin={handleJoin}
+                      myNickname={nickname}
+                    />
+                  )}
+
+                  {registrationOpen && gameState === 'QUESTION' && (
+                    <Question
+                      question={question}
+                      timer={timer}
+                      onSubmitAnswer={handleSubmitAnswer}
+                    />
+                  )}
+
+                  {registrationOpen && gameState === 'REVEAL' && <PlayerWaitScreen />}
+                  {registrationOpen && gameState === 'PODIUM' && <PlayerWaitScreen />}
                 </div>
-              )
+              </div>
             }
           />
 
-          {/* ── Rota do Admin ── */}
+          {/* ── Rota do Admin ───────────────────────── */}
           <Route
             path="/admin"
             element={
@@ -212,6 +202,7 @@ function App() {
               </AdminLoginWrapper>
             }
           />
+
         </Routes>
       </div>
     </BrowserRouter>

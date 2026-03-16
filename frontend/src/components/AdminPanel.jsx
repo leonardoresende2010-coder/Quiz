@@ -28,6 +28,11 @@ function AdminPanel({
     const [showNewGameModal, setShowNewGameModal] = useState(true);
     const [answerStats, setAnswerStats] = useState({ answered: 0, total: 0 });
 
+    // Assim que o admin faz login e o painel monta, abre o registro para jogadores
+    useEffect(() => {
+        socket.emit('admin_open_registration');
+    }, [socket]);
+
     useEffect(() => {
         socket.on('answer_stats', (stats) => {
             setAnswerStats(stats);
