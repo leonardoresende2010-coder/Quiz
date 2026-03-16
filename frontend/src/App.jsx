@@ -7,14 +7,16 @@ import Reveal from './components/Reveal';
 import Podium from './components/Podium';
 import AdminPanel from './components/AdminPanel';
 import ParticipantList from './components/ParticipantList';
-
-import Intro from './components/Intro';
+import LoginScreen from './components/LoginScreen';
 
 import './App.css';
 import './components/ParticipantList.css';
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
 const socket = io(BACKEND_URL);
+
+// Senha do admin — em produção, valide no backend
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || 'admin123';
 
 const PlayerWaitScreen = () => (
   <div className="player-wait-screen">
@@ -25,6 +27,34 @@ const PlayerWaitScreen = () => (
   </div>
 );
 
+/* ── Wrapper de Login do Admin ────────────────── */
+function AdminLoginWrapper({ children }) {
+  const [authed, setAuthed] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleLogin = (pwd) => {
+    if (pwd === ADMIN_PASSWORD) {
+      setAuthed(true);
+      setError(null);
+    } else {
+      setError('Senha incorreta. Tente novamente.');
+    }
+  };
+
+  if (!authed) {
+    return (
+      <LoginScreen
+        mode="admin"
+        onLogin={handleLogin}
+        error={error}
+      />
+    );
+  }
+
+  return children;
+}
+
+/* ── App Principal ────────────────────────────── */
 function App() {
   const [gameState, setGameState] = useState('LOBBY');
   const [players, setPlayers] = useState([]);
@@ -38,13 +68,15 @@ function App() {
   const [fullRanking, setFullRanking] = useState([]);
   const [allTimeRanking, setAllTimeRanking] = useState([]);
   const [playerAnswers, setPlayerAnswers] = useState({});
-
-  const [, setNickname] = useState('');
-  const [isJoined, setIsJoined] = useState(false);
-  const [isApproved, setIsApproved] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [totalQuestions, setTotalQuestions] = useState(0);
-  const [hasSeenIntro, setHasSeenIntro] = useState(false);
+
+  // Estado de login do jogador
+  const [nickname, setNickname] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);   // passou pela tela de login
+  const [isJoined, setIsJoined] = useState(false);        // socket emitiu join_game
+  const [isApproved, setIsApproved] = useState(false);
+  const [loginError, setLoginError] = useState(null);
 
   useEffect(() => {
     socket.on('game_state_change', (data) => {
@@ -65,14 +97,11 @@ function App() {
       if (data.totalQuestions !== undefined) setTotalQuestions(data.totalQuestions);
     });
 
-    socket.on('time_tick', (data) => {
-      setTimer(data.timer);
-    });
-
+    socket.on('time_tick', (data) => setTimer(data.timer));
     socket.on('pending_approval', () => setIsApproved(false));
     socket.on('player_admitted', () => setIsApproved(true));
-    socket.on('bonus_point', () => console.log("Turbo Bonus!"));
-    socket.on('error', (msg) => alert(msg));
+    socket.on('bonus_point', () => console.log('Turbo Bonus!'));
+    socket.on('error', (msg) => setLoginError(msg));
     socket.on('disconnect', () => {
       setIsJoined(false);
       setIsApproved(false);
@@ -89,8 +118,12 @@ function App() {
     };
   }, []);
 
-  const handleJoin = (name) => {
+  /** Chamado pelo LoginScreen do jogador */
+  const handlePlayerLogin = (name) => {
     setNickname(name);
+    setIsLoggedIn(true);
+    setLoginError(null);
+    // Entra no jogo via socket
     socket.emit('join_game', name);
     setIsJoined(true);
   };
@@ -113,49 +146,72 @@ function App() {
     <BrowserRouter>
       <div className="app-container">
         <Routes>
-          <Route path="/" element={
-            !hasSeenIntro ? (
-              <Intro onStart={() => setHasSeenIntro(true)} />
-            ) : (
-              <div className={showSidebar ? "game-with-sidebar" : "game-without-sidebar"}>
-                <div className="game-main-content">
-                  {gameState === 'LOBBY' && (
-                    <Lobby players={players} isJoined={isJoined} isApproved={isApproved} onJoin={handleJoin} />
-                  )}
+          {/* ── Rota do Jogador ── */}
+          <Route
+            path="/"
+            element={
+              !isLoggedIn ? (
+                <LoginScreen
+                  mode="player"
+                  onLogin={handlePlayerLogin}
+                  error={loginError}
+                />
+              ) : (
+                <div className={showSidebar ? 'game-with-sidebar' : 'game-without-sidebar'}>
+                  <div className="game-main-content">
+                    {gameState === 'LOBBY' && (
+                      <Lobby
+                        players={players}
+                        isJoined={isJoined}
+                        isApproved={isApproved}
+                        onJoin={() => { }} // já foi feito no login
+                        myNickname={nickname}
+                      />
+                    )}
 
-                  {gameState === 'QUESTION' && (
-                    <Question question={question} timer={timer} onSubmitAnswer={handleSubmitAnswer} />
-                  )}
+                    {gameState === 'QUESTION' && (
+                      <Question
+                        question={question}
+                        timer={timer}
+                        onSubmitAnswer={handleSubmitAnswer}
+                      />
+                    )}
 
-                  {gameState === 'REVEAL' && <PlayerWaitScreen />}
-
-                  {gameState === 'PODIUM' && <PlayerWaitScreen />}
+                    {gameState === 'REVEAL' && <PlayerWaitScreen />}
+                    {gameState === 'PODIUM' && <PlayerWaitScreen />}
+                  </div>
                 </div>
+              )
+            }
+          />
 
-              </div>
-            )
-          } />
-          <Route path="/admin" element={
-            <AdminPanel
-              socket={socket}
-              gameState={gameState}
-              players={players}
-              pendingPlayers={pendingPlayers}
-              handleStartGame={handleStartGame}
-              question={question}
-              timer={timer}
-              correctAnswerIndex={correctAnswerIndex}
-              scores={players}
-              fastestPlayer={fastestPlayer}
-              correctPlayers={correctPlayers}
-              podium={podium}
-              fullRanking={fullRanking}
-              allTimeRanking={allTimeRanking}
-              playerAnswers={playerAnswers}
-              currentQuestionIndex={currentQuestionIndex}
-              totalQuestions={totalQuestions}
-            />
-          } />
+          {/* ── Rota do Admin ── */}
+          <Route
+            path="/admin"
+            element={
+              <AdminLoginWrapper>
+                <AdminPanel
+                  socket={socket}
+                  gameState={gameState}
+                  players={players}
+                  pendingPlayers={pendingPlayers}
+                  handleStartGame={handleStartGame}
+                  question={question}
+                  timer={timer}
+                  correctAnswerIndex={correctAnswerIndex}
+                  scores={players}
+                  fastestPlayer={fastestPlayer}
+                  correctPlayers={correctPlayers}
+                  podium={podium}
+                  fullRanking={fullRanking}
+                  allTimeRanking={allTimeRanking}
+                  playerAnswers={playerAnswers}
+                  currentQuestionIndex={currentQuestionIndex}
+                  totalQuestions={totalQuestions}
+                />
+              </AdminLoginWrapper>
+            }
+          />
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Rajdhani:wght@600;700;900&display=swap');
+
+/* ─── Root / Background ─────────────────────────── */
+.ls-root {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nunito', sans-serif;
+    overflow: hidden;
+    z-index: 9000;
+}
+
+.ls-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(5, 5, 18, 0.88) 0%,
+            rgba(10, 10, 30, 0.92) 50%,
+            rgba(8, 8, 22, 0.88) 100%);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 0;
+}
+
+/* ─── Particles ─────────────────────────────────── */
+.ls-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.ls-particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.12;
+    animation: floatParticle linear infinite;
+}
+
+.ls-particle--0 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #c9a84c 0%, transparent 70%);
+    top: -80px;
+    left: -80px;
+    animation-duration: 18s;
+    animation-delay: 0s;
+}
+
+.ls-particle--1 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #4c7bc9 0%, transparent 70%);
+    bottom: -60px;
+    right: 10%;
+    animation-duration: 22s;
+    animation-delay: -5s;
+}
+
+.ls-particle--2 {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, #7dffb3 0%, transparent 70%);
+    top: 30%;
+    right: -60px;
+    animation-duration: 15s;
+    animation-delay: -9s;
+}
+
+.ls-particle--3 {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #c94c4c 0%, transparent 70%);
+    bottom: 10%;
+    left: 5%;
+    animation-duration: 20s;
+    animation-delay: -3s;
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.10;
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(180deg);
+        opacity: 0.18;
+    }
+
+    100% {
+        transform: translateY(0px) rotate(360deg);
+        opacity: 0.10;
+    }
+}
+
+/* ─── Card ──────────────────────────────────────── */
+.ls-card {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 16px;
+    background: rgba(13, 13, 30, 0.75);
+    border: 1px solid rgba(201, 168, 76, 0.18);
+    border-radius: 24px;
+    padding: 48px 40px 36px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 24px 80px rgba(0, 0, 0, 0.6),
+        0 0 60px rgba(201, 168, 76, 0.06);
+    animation: cardIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    text-align: center;
+}
+
+.ls-card--shake {
+    animation: cardShake 0.45s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes cardIn {
+    from {
+        transform: translateY(30px) scale(0.92);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes cardShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    15% {
+        transform: translateX(-10px);
+    }
+
+    35% {
+        transform: translateX(10px);
+    }
+
+    55% {
+        transform: translateX(-7px);
+    }
+
+    75% {
+        transform: translateX(7px);
+    }
+
+    90% {
+        transform: translateX(-4px);
+    }
+}
+
+/* ─── Logo ──────────────────────────────────────── */
+.ls-logo-wrap {
+    margin-bottom: 20px;
+}
+
+.ls-logo-ring {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(201, 168, 76, 0.15), rgba(201, 168, 76, 0.05));
+    border: 2px solid rgba(201, 168, 76, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0 0 30px rgba(201, 168, 76, 0.15);
+    animation: logoPulse 2.5s ease-in-out infinite alternate;
+}
+
+.ls-logo-icon {
+    font-size: 2.4rem;
+    line-height: 1;
+}
+
+@keyframes logoPulse {
+    from {
+        box-shadow: 0 0 20px rgba(201, 168, 76, 0.10);
+    }
+
+    to {
+        box-shadow: 0 0 40px rgba(201, 168, 76, 0.30);
+    }
+}
+
+/* ─── Title ─────────────────────────────────────── */
+.ls-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #c9a84c;
+    margin: 0 0 14px;
+    line-height: 1;
+    /* Gold text glow */
+    text-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+}
+
+/* ─── Badge ─────────────────────────────────────── */
+.ls-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+}
+
+.ls-badge--player {
+    background: rgba(125, 255, 179, 0.10);
+    color: #7dffb3;
+    border: 1px solid rgba(125, 255, 179, 0.25);
+}
+
+.ls-badge--admin {
+    background: rgba(201, 168, 76, 0.10);
+    color: #c9a84c;
+    border: 1px solid rgba(201, 168, 76, 0.30);
+}
+
+/* ─── Subtitle ──────────────────────────────────── */
+.ls-subtitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 32px;
+    line-height: 1.5;
+}
+
+/* ─── Form ──────────────────────────────────────── */
+.ls-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ls-field-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.ls-label {
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.40);
+}
+
+.ls-input {
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    color: white;
+    font-size: 1.1rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    padding: 15px 18px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    caret-color: #c9a84c;
+}
+
+.ls-input::placeholder {
+    color: rgba(255, 255, 255, 0.22);
+}
+
+.ls-input:focus {
+    border-color: rgba(201, 168, 76, 0.60);
+    background: rgba(201, 168, 76, 0.06);
+    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.10);
+}
+
+/* ─── Error ─────────────────────────────────────── */
+.ls-error {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #ff6b6b;
+    text-align: center;
+    margin: 0;
+    animation: errorSlide 0.25s ease;
+}
+
+@keyframes errorSlide {
+    from {
+        transform: translateY(-6px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ─── Button ─────────────────────────────────────── */
+.ls-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    border: none;
+    font-size: 1.05rem;
+    font-weight: 900;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.12s, box-shadow 0.2s, opacity 0.15s;
+    margin-top: 4px;
+}
+
+.ls-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.ls-btn--player {
+    background: linear-gradient(135deg, #c9a84c, #f0c96a);
+    color: #0a0a14;
+}
+
+.ls-btn--player:not(:disabled):hover {
+    background: linear-gradient(135deg, #d9b85c, #ffdb80);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(201, 168, 76, 0.35);
+}
+
+.ls-btn--player:active {
+    transform: translateY(1px);
+}
+
+.ls-btn--admin {
+    background: linear-gradient(135deg, #1a3a6a, #2a5aaa);
+    color: #c9d8ff;
+    border: 1px solid rgba(100, 150, 255, 0.20);
+}
+
+.ls-btn--admin:not(:disabled):hover {
+    background: linear-gradient(135deg, #204080, #3068cc);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(50, 100, 200, 0.35);
+}
+
+.ls-btn--admin:active {
+    transform: translateY(1px);
+}
+
+/* ─── Footer ─────────────────────────────────────── */
+.ls-footer {
+    margin-top: 28px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.20);
+    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 18px;
+}
+
+/* ─── Responsive ─────────────────────────────────── */
+@media (max-width: 520px) {
+    .ls-card {
+        padding: 36px 24px 28px;
+        border-radius: 20px;
+    }
+
+    .ls-title {
+        font-size: 2rem;
+        letter-spacing: 4px;
+    }
+
+    .ls-logo-ring {
+        width: 64px;
+        height: 64px;
+    }
+
+    .ls-logo-icon {
+        font-size: 1.9rem;
+    }
+}
